@@ -70,6 +70,7 @@
   .svc-card p { font-size:14px; color:var(--text-soft); margin-bottom:1rem; min-height:42px; }
   .svc-price { font-family:'Playfair Display',serif; font-size:22px; font-weight:600; color:var(--rose-dark); }
   .svc-price small { font-size:13px; font-weight:400; color:var(--text-muted); font-family:'Nunito'; }
+  .svc-empty { grid-column:1/-1; text-align:center; color:var(--text-muted); padding:2rem; }
 
   .gallery-grid { display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:200px; gap:1rem; }
   .gal { background:linear-gradient(150deg,var(--lavender),var(--rose)); border-radius:18px; display:flex; flex-direction:column; align-items:center; justify-content:center; color:var(--lavender-dark); gap:6px; }
@@ -107,6 +108,7 @@
   .choice.sel { border-color:var(--rose-dark); background:var(--rose); box-shadow:0 0 0 2px var(--rose-deep); }
   .choice .c-name { font-weight:700; color:var(--rose-text); font-size:15px; }
   .choice .c-meta { font-size:12px; color:var(--text-soft); margin-top:2px; }
+  .choice .c-price { font-size:13px; font-weight:700; color:var(--rose-dark); }
   .tech-ava { font-size:11px; color:var(--lavender-dark); background:var(--lavender); padding:3px 9px; border-radius:12px; font-weight:700; }
 
   .cal-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; }
@@ -180,8 +182,8 @@
   .login-err.show { display:block; }
   .login-hint { font-size:12px; color:var(--text-muted); margin-top:1.25rem; }
 
-  .tabs { display:flex; gap:.5rem; margin-bottom:1.5rem; border-bottom:1px solid var(--rose-mid); }
-  .tab { background:none; border:none; padding:.75rem 1.25rem; font-family:'Nunito'; font-size:15px; font-weight:700; color:var(--text-soft); cursor:pointer; border-bottom:3px solid transparent; }
+  .tabs { display:flex; gap:.25rem; margin-bottom:1.5rem; border-bottom:1px solid var(--rose-mid); flex-wrap:wrap; }
+  .tab { background:none; border:none; padding:.75rem 1.1rem; font-family:'Nunito'; font-size:15px; font-weight:700; color:var(--text-soft); cursor:pointer; border-bottom:3px solid transparent; }
   .tab.active { color:var(--rose-dark); border-bottom-color:var(--rose-dark); }
   .dash-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-bottom:1.5rem; }
   .stat { background:var(--cream); border:1px solid var(--rose-mid); border-radius:16px; padding:1.1rem 1.25rem; }
@@ -212,8 +214,8 @@
   .tech-row { display:flex; justify-content:space-between; align-items:center; background:var(--cream); border:1px solid var(--rose-mid); border-radius:14px; padding:1rem 1.25rem; margin-bottom:.75rem; }
   .tech-row .t-name { font-weight:700; color:var(--rose-text); font-size:16px; }
   .tech-row .t-meta { font-size:12px; color:var(--text-soft); margin-top:2px; }
-  .add-tech-form { background:var(--cream); border:1px solid var(--rose-mid); border-radius:16px; padding:1.5rem; margin-top:1rem; }
-  .add-tech-form h4 { font-size:16px; color:var(--rose-text); margin-bottom:1rem; }
+  .add-form { background:var(--cream); border:1px solid var(--rose-mid); border-radius:16px; padding:1.5rem; margin-top:1rem; }
+  .add-form h4 { font-size:16px; color:var(--rose-text); margin-bottom:1rem; }
   .chk-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:.5rem; margin-bottom:1rem; }
   .chk { display:flex; align-items:center; gap:7px; font-size:13px; color:var(--text-soft); cursor:pointer; background:var(--white); border:1px solid var(--rose-mid); border-radius:10px; padding:.5rem .7rem; }
   .chk input { accent-color:var(--rose-dark); }
@@ -222,13 +224,23 @@
   .toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%); background:var(--rose-text); color:#fff; padding:.9rem 1.5rem; border-radius:30px; font-size:14px; font-weight:600; z-index:2000; box-shadow:0 8px 30px rgba(0,0,0,.25); display:none; }
   .toast.show { display:block; }
 
+  .svc-edit { background:var(--cream); border:1px solid var(--rose-mid); border-radius:16px; padding:1.25rem; margin-bottom:.85rem; }
+  .svc-edit .se-head { display:flex; align-items:center; gap:10px; margin-bottom:1rem; }
+  .svc-edit .se-ico { width:40px; height:40px; border-radius:11px; background:var(--rose); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .svc-edit .se-ico i { font-size:20px; color:var(--rose-dark); }
+  .svc-edit .se-title { font-weight:700; color:var(--rose-text); font-size:15px; }
+  .svc-edit .se-row { display:grid; grid-template-columns:2fr 1fr; gap:.75rem; margin-bottom:.65rem; }
+  .svc-edit input, .svc-edit textarea, .svc-edit select { width:100%; font-family:'Nunito'; font-size:14px; padding:.55rem .8rem; border:1.5px solid var(--rose-mid); border-radius:10px; background:var(--white); color:var(--text); outline:none; }
+  .svc-edit textarea { resize:none; height:48px; }
+  .svc-edit .se-actions { display:flex; justify-content:flex-end; gap:8px; margin-top:.5rem; }
+
   @media (max-width:900px) {
     .hero-grid, .about-grid { grid-template-columns:1fr; }
     .hero-visual { max-width:340px; margin:0 auto; }
     .services-grid, .choice-grid { grid-template-columns:1fr; }
     .gallery-grid { grid-template-columns:repeat(2,1fr); }
     .hero h1 { font-size:42px; } .wrap { padding:0 1.25rem; }
-    .footer-grid, .dash-stats, .field-row, .chk-grid { grid-template-columns:1fr; }
+    .footer-grid, .dash-stats, .field-row, .chk-grid, .svc-edit .se-row { grid-template-columns:1fr; }
     .slot-grid { grid-template-columns:repeat(3,1fr); }
     .wiz { padding:1.5rem; } .modal-body { padding:1.25rem; }
     .wiz-step span.txt { display:none; } .wiz-line { width:16px; }
@@ -268,14 +280,7 @@
 <section class="services" id="services">
   <div class="wrap">
     <div class="sec-head"><div class="sec-eyebrow">What we offer</div><h2>Our services</h2><p>Pamper yourself with our most-loved treatments</p></div>
-    <div class="services-grid">
-      <div class="svc-card"><div class="svc-icon"><i class="ti ti-droplet"></i></div><h3>Classic manicure</h3><p>Shape, cuticle care, buff, and a polish in your favorite shade.</p><div class="svc-price">$25 <small>&amp; up</small></div></div>
-      <div class="svc-card"><div class="svc-icon"><i class="ti ti-sparkles"></i></div><h3>Gel manicure</h3><p>Long-lasting, chip-resistant gel color with a glossy finish.</p><div class="svc-price">$35 <small>&amp; up</small></div></div>
-      <div class="svc-card"><div class="svc-icon"><i class="ti ti-diamond"></i></div><h3>Acrylic full set</h3><p>Custom-sculpted length and shape &mdash; full sets and fills.</p><div class="svc-price">$45 <small>&amp; up</small></div></div>
-      <div class="svc-card"><div class="svc-icon"><i class="ti ti-flower"></i></div><h3>Spa pedicure</h3><p>Relaxing soak, exfoliation, massage, and polish.</p><div class="svc-price">$35 <small>&amp; up</small></div></div>
-      <div class="svc-card"><div class="svc-icon"><i class="ti ti-palette"></i></div><h3>Nail art &amp; design</h3><p>French tips, ombr&eacute;, rhinestones, and seasonal custom art.</p><div class="svc-price">$10 <small>&amp; up</small></div></div>
-      <div class="svc-card"><div class="svc-icon"><i class="ti ti-wand"></i></div><h3>Waxing</h3><p>Brows, lip, and full-body waxing for smooth, lasting results.</p><div class="svc-price">$12 <small>&amp; up</small></div></div>
-    </div>
+    <div class="services-grid" id="servicesGrid"></div>
   </div>
 </section>
 
@@ -334,7 +339,7 @@
     <div class="modal-body">
       <div class="login-box" id="loginView">
         <div class="lock-ico"><i class="ti ti-lock"></i></div>
-        <p>Enter your password to manage appointments and nail techs.</p>
+        <p>Enter your password to manage appointments, techs, and services.</p>
         <input type="password" id="ownerPass" placeholder="Password" />
         <div class="login-err" id="loginErr">Incorrect password. Please try again.</div>
         <button class="btn btn-primary" id="loginBtn" style="width:100%; justify-content:center;"><i class="ti ti-login"></i> Log in</button>
@@ -348,9 +353,9 @@
 <div class="toast" id="toast"></div>
 
 <script>
-  var SERVICES = ["Classic manicure","Gel manicure","Acrylic full set","Spa pedicure","Nail art & design","Waxing"];
   var DOW = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
   var OWNER_PASSWORD = "porters2026";
+  var ICON_CHOICES = ["ti-droplet","ti-sparkles","ti-diamond","ti-flower","ti-palette","ti-wand","ti-heart","ti-star","ti-brush","ti-massage","ti-hand-finger","ti-rosette"];
   var mem = {};
   var DB = {
     get: function(k){ try { return localStorage.getItem(k); } catch(e){ return (k in mem)?mem[k]:null; } },
@@ -359,6 +364,18 @@
   function load(k,d){ var v=DB.get(k); return v?JSON.parse(v):d; }
   function save(k,v){ DB.set(k,JSON.stringify(v)); }
 
+  var services = load('porters_services', null);
+  if(!services){
+    services = [
+      { id:'s1', name:'Classic manicure', price:25, desc:'Shape, cuticle care, buff, and a polish in your favorite shade.', icon:'ti-droplet' },
+      { id:'s2', name:'Gel manicure', price:35, desc:'Long-lasting, chip-resistant gel color with a glossy finish.', icon:'ti-sparkles' },
+      { id:'s3', name:'Acrylic full set', price:45, desc:'Custom-sculpted length and shape — full sets and fills.', icon:'ti-diamond' },
+      { id:'s4', name:'Spa pedicure', price:35, desc:'Relaxing soak, exfoliation, massage, and polish.', icon:'ti-flower' },
+      { id:'s5', name:'Nail art & design', price:10, desc:'French tips, ombré, rhinestones, and seasonal custom art.', icon:'ti-palette' },
+      { id:'s6', name:'Waxing', price:12, desc:'Brows, lip, and full-body waxing for smooth, lasting results.', icon:'ti-wand' }
+    ];
+    save('porters_services', services);
+  }
   var techs = load('porters_techs', null);
   if(!techs){
     techs = [
@@ -369,12 +386,23 @@
   }
   var appts = load('porters_appts', []);
 
+  function serviceNames(){ return services.map(function(s){ return s.name; }); }
+  function priceOf(name){ var s=services.filter(function(x){return x.name===name;})[0]; return s?s.price:null; }
+
   function pad(n){ return String(n).padStart(2,'0'); }
   function ymd(d){ return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()); }
   var todayStr = ymd(new Date());
   function fmtTime(t){ var p=t.split(':').map(Number); var h=p[0],m=p[1]; var ap=h>=12?'PM':'AM'; h=h%12||12; return h+':'+pad(m)+' '+ap; }
   function fmtDateLong(s){ var p=s.split('-'); var dt=new Date(p[0],p[1]-1,p[2]); return dt.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'}); }
   function hourLabel(h){ var ap=h>=12?'pm':'am'; var hh=h>12?h-12:h; return hh+ap; }
+
+  function renderPublicServices(){
+    var g=document.getElementById('servicesGrid');
+    if(!services.length){ g.innerHTML='<div class="svc-empty">Services coming soon — call us at (281) 747-7421.</div>'; return; }
+    g.innerHTML = services.map(function(s){
+      return '<div class="svc-card"><div class="svc-icon"><i class="ti '+s.icon+'"></i></div><h3>'+s.name+'</h3><p>'+(s.desc||'')+'</p><div class="svc-price">$'+s.price+' <small>&amp; up</small></div></div>';
+    }).join('');
+  }
 
   function techSlots(tech, dateStr){
     var p=dateStr.split('-'); var dow=new Date(p[0],p[1]-1,p[2]).getDay();
@@ -418,8 +446,9 @@
   }
 
   function renderService(b){
+    if(!services.length){ b.innerHTML='<div class="empty-techs"><i class="ti ti-mood-empty"></i><p>No services available yet. Please call (281) 747-7421.</p></div>'; document.getElementById('wizSteps').innerHTML=''; return; }
     b.innerHTML = '<div class="wiz-title">What would you like done?</div><div class="wiz-sub">Choose a service to see which techs are available</div>'+
-      '<div class="choice-grid">'+SERVICES.map(function(s){ return '<div class="choice '+(wiz.service===s?'sel':'')+'" data-svc="'+s+'"><div><div class="c-name">'+s+'</div></div><i class="ti ti-chevron-right" style="color:var(--rose-mid)"></i></div>'; }).join('')+'</div>';
+      '<div class="choice-grid">'+services.map(function(s){ return '<div class="choice '+(wiz.service===s.name?'sel':'')+'" data-svc="'+s.name+'"><div><div class="c-name">'+s.name+'</div><div class="c-meta">from $'+s.price+'</div></div><i class="ti ti-chevron-right" style="color:var(--rose-mid)"></i></div>'; }).join('')+'</div>';
     Array.prototype.forEach.call(b.querySelectorAll('[data-svc]'),function(el){ el.onclick=function(){ wiz.service=el.dataset.svc; wiz.techId=null; wiz.date=null; wiz.time=null; wiz.step=2; render(); }; });
   }
 
@@ -482,9 +511,10 @@
 
   function renderDetails(b){
     var tech = techs.filter(function(t){return t.id===wiz.techId;})[0];
+    var pr = priceOf(wiz.service);
     b.innerHTML = '<div class="wiz-title">Your details</div><div class="wiz-sub">Almost done! We\'ll use this to confirm your appointment</div>'+
       '<div class="summary">'+
-        '<div><span>Service</span><strong>'+wiz.service+'</strong></div>'+
+        '<div><span>Service</span><strong>'+wiz.service+(pr!=null?' (from $'+pr+')':'')+'</strong></div>'+
         '<div><span>Nail tech</span><strong>'+tech.name+'</strong></div>'+
         '<div><span>Date</span><strong>'+fmtDateLong(wiz.date)+'</strong></div>'+
         '<div><span>Time</span><strong>'+fmtTime(wiz.time)+'</strong></div>'+
@@ -530,10 +560,16 @@
   var ownerTab='appts';
   function renderDash(){
     var d=document.getElementById('dashView');
-    d.innerHTML = '<div class="tabs"><button class="tab '+(ownerTab==='appts'?'active':'')+'" data-tab="appts">Appointments</button><button class="tab '+(ownerTab==='techs'?'active':'')+'" data-tab="techs">Nail techs</button><button class="tab" id="logoutTab" style="margin-left:auto;color:var(--text-muted)">Log out</button></div><div id="tabBody"></div>';
+    d.innerHTML = '<div class="tabs">'+
+      '<button class="tab '+(ownerTab==='appts'?'active':'')+'" data-tab="appts">Appointments</button>'+
+      '<button class="tab '+(ownerTab==='techs'?'active':'')+'" data-tab="techs">Nail techs</button>'+
+      '<button class="tab '+(ownerTab==='services'?'active':'')+'" data-tab="services">Services &amp; prices</button>'+
+      '<button class="tab" id="logoutTab" style="margin-left:auto;color:var(--text-muted)">Log out</button></div><div id="tabBody"></div>';
     Array.prototype.forEach.call(d.querySelectorAll('[data-tab]'),function(el){ el.onclick=function(){ ownerTab=el.dataset.tab; renderDash(); }; });
     d.querySelector('#logoutTab').onclick=function(){ document.getElementById('dashView').style.display='none'; document.getElementById('loginView').style.display='block'; document.getElementById('modalTitle').textContent='Owner login'; };
-    if(ownerTab==='appts') renderApptsTab(); else renderTechsTab();
+    if(ownerTab==='appts') renderApptsTab();
+    else if(ownerTab==='techs') renderTechsTab();
+    else renderServicesTab();
   }
 
   function renderApptsTab(){
@@ -562,10 +598,10 @@
       var dayNames=Object.keys(t.days).filter(function(k){return t.days[k];}).map(function(k){return DOW[k];}).join(', ');
       return '<div class="tech-row"><div><div class="t-name">'+t.name+'</div><div class="t-meta">'+t.services.length+' services &middot; '+(dayNames||'no days set')+' &middot; '+hourLabel(t.start)+'&ndash;'+hourLabel(t.end)+'</div></div><button class="mini no" data-del="'+t.id+'"><i class="ti ti-trash"></i></button></div>';
     }).join('') : '<div class="dash-empty"><i class="ti ti-user-off"></i><p>No nail techs yet. Add one below.</p></div>';
-    html += '<div class="add-tech-form">'+
+    html += '<div class="add-form">'+
       '<h4>Add a nail tech</h4>'+
       '<div class="field"><label>Name</label><input id="ntName" placeholder="e.g. Anna"></div>'+
-      '<span class="lbl">Services they can do</span><div class="chk-grid" id="ntSvc">'+SERVICES.map(function(s){ return '<label class="chk"><input type="checkbox" value="'+s+'"> '+s+'</label>'; }).join('')+'</div>'+
+      '<span class="lbl">Services they can do</span><div class="chk-grid" id="ntSvc">'+serviceNames().map(function(s){ return '<label class="chk"><input type="checkbox" value="'+s+'"> '+s+'</label>'; }).join('')+'</div>'+
       '<span class="lbl">Working days</span><div class="chk-grid" id="ntDays">'+DOW.map(function(d,i){ return '<label class="chk"><input type="checkbox" value="'+i+'"> '+d+'</label>'; }).join('')+'</div>'+
       '<div class="field-row"><div class="field"><label>Starts at</label><select id="ntStart">'+[8,9,10,11,12].map(function(h){ return '<option value="'+h+'" '+(h===9?'selected':'')+'>'+hourLabel(h)+'</option>'; }).join('')+'</select></div><div class="field"><label>Ends at</label><select id="ntEnd">'+[15,16,17,18,19,20].map(function(h){ return '<option value="'+h+'" '+(h===18?'selected':'')+'>'+hourLabel(h)+'</option>'; }).join('')+'</select></div></div>'+
       '<button class="btn btn-primary" id="addTechBtn" style="width:100%;justify-content:center;"><i class="ti ti-user-plus"></i> Add nail tech</button>'+
@@ -575,17 +611,74 @@
     Array.prototype.forEach.call(tb.querySelectorAll('[data-del]'),function(el){ el.onclick=function(){ techs=techs.filter(function(t){return t.id!==el.dataset.del;}); save('porters_techs',techs); renderDash(); }; });
     tb.querySelector('#addTechBtn').onclick=function(){
       var name=tb.querySelector('#ntName').value.trim();
-      var services=Array.prototype.map.call(tb.querySelectorAll('#ntSvc input:checked'),function(c){return c.value;});
+      var svc=Array.prototype.map.call(tb.querySelectorAll('#ntSvc input:checked'),function(c){return c.value;});
       var dayArr=Array.prototype.map.call(tb.querySelectorAll('#ntDays input:checked'),function(c){return +c.value;});
       if(!name){ showToast('Please enter a name'); return; }
-      if(!services.length){ showToast('Select at least one service'); return; }
+      if(!svc.length){ showToast('Select at least one service'); return; }
       if(!dayArr.length){ showToast('Select at least one working day'); return; }
       var days={}; dayArr.forEach(function(d){ days[d]=1; });
-      techs.push({ id:'t'+Date.now(), name:name, services:services, days:days, start:+tb.querySelector('#ntStart').value, end:+tb.querySelector('#ntEnd').value });
+      techs.push({ id:'t'+Date.now(), name:name, services:svc, days:days, start:+tb.querySelector('#ntStart').value, end:+tb.querySelector('#ntEnd').value });
       save('porters_techs',techs); showToast(name+' added!'); renderDash();
     };
   }
 
+  function renderServicesTab(){
+    var tb=document.getElementById('tabBody');
+    var html = '<div class="demo-banner"><i class="ti ti-info-circle"></i><div>Anything you change here updates the public menu and the booking form instantly. Renaming a service keeps it linked to your techs.</div></div>';
+    html += services.map(function(s){
+      var iconOpts = ICON_CHOICES.map(function(ic){ return '<option value="'+ic+'" '+(ic===s.icon?'selected':'')+'>'+ic.replace('ti-','')+'</option>'; }).join('');
+      return '<div class="svc-edit" data-sid="'+s.id+'">'+
+        '<div class="se-head"><div class="se-ico"><i class="ti '+s.icon+'"></i></div><div class="se-title">'+s.name+'</div></div>'+
+        '<div class="se-row"><input class="se-name" value="'+s.name.replace(/"/g,'&quot;')+'" placeholder="Service name"><input class="se-price" type="number" min="0" value="'+s.price+'" placeholder="Price"></div>'+
+        '<textarea class="se-desc" placeholder="Short description">'+(s.desc||'')+'</textarea>'+
+        '<div class="se-row" style="margin-top:.65rem"><select class="se-icon">'+iconOpts+'</select><span></span></div>'+
+        '<div class="se-actions"><button class="mini no" data-delsvc="'+s.id+'"><i class="ti ti-trash"></i> Delete</button><button class="mini ok" data-savesvc="'+s.id+'"><i class="ti ti-device-floppy"></i> Save</button></div>'+
+      '</div>';
+    }).join('');
+    html += '<div class="add-form">'+
+      '<h4>Add a new service</h4>'+
+      '<div class="field-row"><div class="field"><label>Service name</label><input id="nsName" placeholder="e.g. Dip powder"></div><div class="field"><label>Starting price ($)</label><input id="nsPrice" type="number" min="0" placeholder="30"></div></div>'+
+      '<div class="field"><label>Short description</label><input id="nsDesc" placeholder="A quick line shown on the menu"></div>'+
+      '<div class="field"><label>Icon</label><select id="nsIcon">'+ICON_CHOICES.map(function(ic){return '<option value="'+ic+'">'+ic.replace('ti-','')+'</option>';}).join('')+'</select></div>'+
+      '<button class="btn btn-primary" id="addSvcBtn" style="width:100%;justify-content:center;"><i class="ti ti-plus"></i> Add service</button>'+
+      '</div>';
+    tb.innerHTML=html;
+
+    Array.prototype.forEach.call(tb.querySelectorAll('[data-savesvc]'),function(el){ el.onclick=function(){
+      var card=el.closest('.svc-edit'); var sid=el.dataset.savesvc;
+      var s=services.filter(function(x){return x.id===sid;})[0];
+      var newName=card.querySelector('.se-name').value.trim();
+      var newPrice=parseInt(card.querySelector('.se-price').value,10);
+      if(!newName){ showToast('Service name cannot be empty'); return; }
+      if(isNaN(newPrice)||newPrice<0){ showToast('Enter a valid price'); return; }
+      var oldName=s.name;
+      if(newName!==oldName){
+        techs.forEach(function(t){ var i=t.services.indexOf(oldName); if(i>-1) t.services[i]=newName; });
+        appts.forEach(function(a){ if(a.service===oldName) a.service=newName; });
+        save('porters_techs',techs); save('porters_appts',appts);
+      }
+      s.name=newName; s.price=newPrice; s.desc=card.querySelector('.se-desc').value.trim(); s.icon=card.querySelector('.se-icon').value;
+      save('porters_services',services); renderPublicServices(); showToast('Saved!'); renderDash();
+    }; });
+
+    Array.prototype.forEach.call(tb.querySelectorAll('[data-delsvc]'),function(el){ el.onclick=function(){
+      var sid=el.dataset.delsvc; var s=services.filter(function(x){return x.id===sid;})[0];
+      techs.forEach(function(t){ var i=t.services.indexOf(s.name); if(i>-1) t.services.splice(i,1); });
+      services=services.filter(function(x){return x.id!==sid;});
+      save('porters_services',services); save('porters_techs',techs); renderPublicServices(); showToast('Service removed'); renderDash();
+    }; });
+
+    tb.querySelector('#addSvcBtn').onclick=function(){
+      var name=tb.querySelector('#nsName').value.trim();
+      var price=parseInt(tb.querySelector('#nsPrice').value,10);
+      if(!name){ showToast('Please enter a service name'); return; }
+      if(isNaN(price)||price<0){ showToast('Please enter a starting price'); return; }
+      services.push({ id:'s'+Date.now(), name:name, price:price, desc:tb.querySelector('#nsDesc').value.trim(), icon:tb.querySelector('#nsIcon').value });
+      save('porters_services',services); renderPublicServices(); showToast(name+' added!'); renderDash();
+    };
+  }
+
+  renderPublicServices();
   render();
 </script>
 </body>
