@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Porter's Nails & Spa — Porter, TX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --rose: #FBEAF0;
+    --rose-mid: #F4C0D1;
+    --rose-deep: #ED93B1;
+    --rose-dark: #B84A6E;
+    --rose-text: #72243E;
+    --lavender: #EEEDFE;
+    --lavender-mid: #CECBF6;
+    --lavender-dark: #534AB7;
+    --lavender-text: #3C3489;
+    --cream: #FDF8F5;
+    --peach: #FAECE7;
+    --peach-mid: #F5C4B3;
+    --peach-text: #712B13;
+    --text: #3a2a2a;
+    --text-soft: #7a5f5f;
+    --text-muted: #b09898;
+    --white: #ffffff;
+    --shadow: 0 10px 40px rgba(184, 74, 110, 0.08);
+    --shadow-sm: 0 4px 16px rgba(184, 74, 110, 0.06);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 2rem; }
+
+  /* ===== NAV ===== */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(253, 248, 245, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rose-mid);
+  }
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.1rem 2rem;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--rose-text);
+    letter-spacing: 0.01em;
+    text-decoration: none;
+  }
+  .logo span { color: var(--rose-dark); font-style: italic; }
+  .nav-links { display: flex; align-items: center; gap: 2.2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-soft);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+    position: relative;
+  }
+  .nav-links a:not(.nav-cta):not(.nav-owner)::after {
+    content: '';
+    position: absolute;
+    bottom: -6px; left: 0;
+    width: 0; height: 2px;
+    background: var(--rose-dark);
+    transition: width 0.25s;
+  }
+  .nav-links a:not(.nav-cta):not(.nav-owner):hover::after { width: 100%; }
+  .nav-links a:hover { color: var(--rose-text); }
+  .nav-cta {
+    background: var(--rose-dark);
+    color: var(--white) !important;
+    padding: 0.6rem 1.4rem;
+    border-radius: 25px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(184,74,110,0.3); }
+  .nav-owner {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: var(--lavender-dark) !important;
+    font-size: 13px;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    position: relative;
+    padding: 5.5rem 0 5rem;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 480px; height: 480px;
+    background: var(--rose);
+    border-radius: 50%;
+    z-index: 0;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -160px; left: -100px;
+    width: 380px; height: 380px;
+    background: var(--lavender);
+    border-radius: 50%;
+    z-index: 0;
+  }
+  .hero-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: var(--lavender);
+    color: var(--lavender-text);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 25px;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 58px;
+    font-weight: 600;
+    line-height: 1.08;
+    color: var(--rose-text);
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.01em;
+  }
+  .hero h1 em { font-style: italic; color: var(--rose-dark); }
+  .hero p {
+    font-size: 17px;
+    color: var(--text-soft);
+    max-width: 440px;
+    margin-bottom: 2rem;
+  }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 0.85rem 1.9rem;
+    border-radius: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  }
+  .btn-primary { background: var(--rose-dark); color: var(--white); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(184,74,110,0.3); }
+  .btn-ghost { background: var(--white); color: var(--rose-text); border: 2px solid var(--rose-mid); }
+  .btn-ghost:hover { background: var(--rose); border-color: var(--rose-deep); }
+
+  .hero-visual {
+    position: relative;
+    aspect-ratio: 4/5;
+    background: linear-gradient(160deg, var(--rose) 0%, var(--peach) 100%);
+    border-radius: 28px;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .hero-visual .ph {
+    text-align: center;
+    color: var(--rose-dark);
+  }
+  .hero-visual .ph i { font-size: 56px; opacity: 0.5; }
+  .hero-visual .ph p { font-size: 13px; font-weight: 600; margin-top: 8px; letter-spacing: 0.05em; }
+  .hero-float {
+    position: absolute;
+    background: var(--white);
+    border-radius: 16px;
+    padding: 0.9rem 1.1rem;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .hero-float i { font-size: 22px; }
+  .hero-float .ff-label { font-size: 11px; color: var(--text-muted); font-weight: 600; }
+  .hero-float .ff-val { font-size: 14px; color: var(--rose-text); font-weight: 700; }
+  .float-1 { bottom: 24px; left: -28px; }
+  .float-1 i { color: var(--rose-dark); }
+  .float-2 { top: 28px; right: -22px; }
+  .float-2 i { color: var(--lavender-dark); }
+
+  /* ===== SECTION SHARED ===== */
+  section { padding: 4.5rem 0; }
+  .sec-head { text-align: center; margin-bottom: 3rem; }
+  .sec-eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--rose-dark);
+    margin-bottom: 0.5rem;
+  }
+  .sec-head h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    font-weight: 500;
+    color: var(--rose-text);
+  }
+  .sec-head p { color: var(--text-soft); margin-top: 0.5rem; font-size: 16px; }
+
+  /* ===== SERVICES ===== */
+  .services { background: var(--white); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  .svc-card {
+    background: var(--cream);
+    border: 1px solid var(--rose-mid);
+    border-radius: 20px;
+    padding: 1.75rem;
+    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  }
+  .svc-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow);
+    border-color: var(--rose-deep);
+  }
+  .svc-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    background: var(--rose);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1rem;
+  }
+  .svc-icon i { font-size: 26px; color: var(--rose-dark); }
+  .svc-card:nth-child(3n+2) .svc-icon { background: var(--lavender); }
+  .svc-card:nth-child(3n+2) .svc-icon i { color: var(--lavender-dark); }
+  .svc-card:nth-child(3n) .svc-icon { background: var(--peach); }
+  .svc-card:nth-child(3n) .svc-icon i { color: var(--peach-text); }
+  .svc-card h3 { font-size: 19px; font-weight: 700; color: var(--rose-text); margin-bottom: 0.4rem; }
+  .svc-card p { font-size: 14px; color: var(--text-soft); margin-bottom: 1rem; min-height: 42px; }
+  .svc-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--rose-dark);
+  }
+  .svc-price small { font-size: 13px; font-weight: 400; color: var(--text-muted); font-family: 'Nunito'; }
+
+  /* ===== GALLERY ===== */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 200px;
+    gap: 1rem;
+  }
+  .gal {
+    background: linear-gradient(150deg, var(--lavender), var(--rose));
+    border-radius: 18px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    color: var(--lavender-dark);
+    gap: 6px;
+    transition: transform 0.25s;
+  }
+  .gal:hover { transform: scale(1.02); }
+  .gal i { font-size: 30px; opacity: 0.55; }
+  .gal span { font-size: 12px; font-weight: 600; letter-spacing: 0.05em; }
+  .gal.big { grid-column: span 2; grid-row: span 2; }
+  .gal:nth-child(even) { background: linear-gradient(150deg, var(--peach), var(--rose)); color: var(--peach-text); }
+
+  /* ===== ABOUT + INFO ===== */
+  .about { background: var(--white); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+  .about-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 500;
+    color: var(--rose-text);
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+  }
+  .about-text p { color: var(--text-soft); margin-bottom: 1rem; font-size: 16px; }
+  .info-stack { display: flex; flex-direction: column; gap: 1rem; }
+  .info-card {
+    display: flex; align-items: center; gap: 1rem;
+    background: var(--cream);
+    border: 1px solid var(--rose-mid);
+    border-radius: 16px;
+    padding: 1.1rem 1.4rem;
+  }
+  .info-card .ic-ico {
+    width: 46px; height: 46px; flex-shrink: 0;
+    border-radius: 12px;
+    background: var(--lavender);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .info-card .ic-ico i { font-size: 22px; color: var(--lavender-dark); }
+  .info-card:nth-child(2) .ic-ico { background: var(--rose); }
+  .info-card:nth-child(2) .ic-ico i { color: var(--rose-dark); }
+  .info-card:nth-child(3) .ic-ico { background: var(--peach); }
+  .info-card:nth-child(3) .ic-ico i { color: var(--peach-text); }
+  .info-card strong { display: block; font-size: 15px; color: var(--rose-text); font-weight: 700; }
+  .info-card span { font-size: 13px; color: var(--text-soft); }
+
+  /* ===== BOOKING ===== */
+  .booking { background: linear-gradient(170deg, var(--rose) 0%, var(--cream) 100%); }
+  .booking-card {
+    max-width: 680px;
+    margin: 0 auto;
+    background: var(--white);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    padding: 2.5rem;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field.full { grid-column: span 2; }
+  .field label { font-size: 13px; font-weight: 700; color: var(--rose-text); }
+  .field input, .field select, .field textarea {
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    padding: 0.75rem 1rem;
+    border: 1.5px solid var(--rose-mid);
+    border-radius: 12px;
+    background: var(--cream);
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--rose-dark); }
+  .field textarea { resize: none; height: 80px; }
+  .book-submit { width: 100%; justify-content: center; margin-top: 0.5rem; font-size: 16px; }
+  .book-msg {
+    display: none;
+    margin-top: 1rem;
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    background: var(--lavender);
+    color: var(--lavender-text);
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+  }
+  .book-msg.show { display: block; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--rose-text);
+    color: #f4d0df;
+    padding: 3rem 0 2rem;
+  }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--white); margin-bottom: 0.75rem; }
+  footer p, footer a { font-size: 14px; color: #f0c8d8; line-height: 1.9; text-decoration: none; }
+  footer a:hover { color: var(--white); }
+  .footer-col h4 { color: var(--white); font-size: 15px; margin-bottom: 0.75rem; font-weight: 700; }
+  .footer-col a { display: block; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.15); padding-top: 1.5rem; text-align: center; font-size: 13px; color: #e8b8c8; }
+
+  /* ===== OWNER MODAL ===== */
+  .overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(58, 23, 38, 0.55);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  .overlay.show { display: flex; }
+  .modal {
+    background: var(--white);
+    border-radius: 24px;
+    width: 100%;
+    max-width: 880px;
+    max-height: 88vh;
+    overflow-y: auto;
+    box-shadow: 0 24px 70px rgba(58,23,38,0.4);
+  }
+  .modal-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--rose-mid);
+    position: sticky; top: 0;
+    background: var(--white);
+    border-radius: 24px 24px 0 0;
+  }
+  .modal-head h3 { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--rose-text); font-weight: 600; }
+  .modal-close { background: var(--cream); border: none; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; color: var(--rose-text); font-size: 18px; display: flex; align-items: center; justify-content: center; }
+  .modal-close:hover { background: var(--rose); }
+  .modal-body { padding: 2rem; }
+
+  .login-box { max-width: 360px; margin: 1rem auto 0; text-align: center; }
+  .login-box .lock-ico { width: 64px; height: 64px; border-radius: 50%; background: var(--lavender); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; }
+  .login-box .lock-ico i { font-size: 30px; color: var(--lavender-dark); }
+  .login-box p { color: var(--text-soft); font-size: 14px; margin-bottom: 1.5rem; }
+  .login-box input { width: 100%; font-family: 'Nunito'; font-size: 15px; padding: 0.8rem 1rem; border: 1.5px solid var(--rose-mid); border-radius: 12px; margin-bottom: 1rem; outline: none; }
+  .login-box input:focus { border-color: var(--rose-dark); }
+  .login-err { color: var(--rose-dark); font-size: 13px; font-weight: 600; margin-bottom: 1rem; display: none; }
+  .login-err.show { display: block; }
+  .login-hint { font-size: 12px; color: var(--text-muted); margin-top: 1.25rem; }
+
+  .dash-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.75rem; }
+  .stat { background: var(--cream); border: 1px solid var(--rose-mid); border-radius: 16px; padding: 1.1rem 1.25rem; }
+  .stat .s-label { font-size: 12px; color: var(--text-muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+  .stat .s-val { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 600; color: var(--rose-dark); }
+  .appt-list { display: flex; flex-direction: column; gap: 0.75rem; }
+  .appt {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1rem;
+    align-items: center;
+    background: var(--white);
+    border: 1px solid var(--rose-mid);
+    border-radius: 14px;
+    padding: 1rem 1.25rem;
+  }
+  .appt .a-date { text-align: center; background: var(--rose); border-radius: 10px; padding: 0.5rem 0.75rem; min-width: 64px; }
+  .appt .a-date .ad-day { font-family: 'Playfair Display'; font-size: 20px; font-weight: 600; color: var(--rose-dark); line-height: 1; }
+  .appt .a-date .ad-mon { font-size: 11px; font-weight: 700; color: var(--rose-text); text-transform: uppercase; }
+  .appt .a-name { font-size: 16px; font-weight: 700; color: var(--rose-text); }
+  .appt .a-meta { font-size: 13px; color: var(--text-soft); }
+  .appt .a-svc { background: var(--lavender); color: var(--lavender-text); font-size: 12px; font-weight: 700; padding: 5px 12px; border-radius: 20px; white-space: nowrap; }
+  .appt .a-time { font-size: 13px; font-weight: 700; color: var(--rose-dark); }
+  .dash-empty { text-align: center; padding: 3rem 1rem; color: var(--text-muted); }
+  .dash-empty i { font-size: 44px; opacity: 0.4; }
+  .dash-empty p { margin-top: 0.75rem; font-size: 14px; }
+  .dash-actions { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; }
+  .dash-actions h4 { font-size: 17px; color: var(--rose-text); font-weight: 700; }
+  .btn-logout { background: var(--cream); color: var(--rose-text); border: 1px solid var(--rose-mid); font-size: 13px; padding: 0.5rem 1.1rem; border-radius: 20px; cursor: pointer; font-weight: 700; font-family: 'Nunito'; }
+  .btn-logout:hover { background: var(--rose); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .hero-grid, .about-grid { grid-template-columns: 1fr; }
+    .hero-visual { max-width: 360px; margin: 0 auto; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero h1 { font-size: 44px; }
+    .nav-links { gap: 1rem; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .dash-stats { grid-template-columns: 1fr; }
+  }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.30.0/tabler-icons.min.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#home" class="logo">Porter's <span>Nails & Spa</span></a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#book" class="nav-cta">Book now</a></li>
+      <li><a href="#" class="nav-owner" id="ownerLink"><i class="ti ti-lock"></i> Owner login</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <span class="hero-badge"><i class="ti ti-sparkles"></i> Under new ownership · Porter, TX</span>
+      <h1>Nails that make you feel <em>beautiful.</em></h1>
+      <p>Professional nail care and spa treatments in a warm, welcoming space. Walk-ins always welcome — or book ahead to skip the wait.</p>
+      <div class="hero-btns">
+        <a href="#book" class="btn btn-primary"><i class="ti ti-calendar-heart"></i> Book an appointment</a>
+        <a href="tel:2817477421" class="btn btn-ghost"><i class="ti ti-phone"></i> (281) 747-7421</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="ph">
+        <i class="ti ti-photo"></i>
+        <p>YOUR SALON PHOTO HERE</p>
+      </div>
+      <div class="hero-float float-1">
+        <i class="ti ti-star"></i>
+        <div><div class="ff-label">Google rating</div><div class="ff-val">Loved by locals</div></div>
+      </div>
+      <div class="hero-float float-2">
+        <i class="ti ti-clock-hour-9"></i>
+        <div><div class="ff-label">Open today</div><div class="ff-val">9 AM – 7 PM</div></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-eyebrow">What we offer</div>
+      <h2>Our services</h2>
+      <p>Pamper yourself with our most-loved treatments</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card">
+        <div class="svc-icon"><i class="ti ti-droplet"></i></div>
+        <h3>Classic manicure</h3>
+        <p>Shape, cuticle care, buff, and a polish in your favorite shade.</p>
+        <div class="svc-price">$25 <small>& up</small></div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><i class="ti ti-sparkles"></i></div>
+        <h3>Gel manicure</h3>
+        <p>Long-lasting, chip-resistant gel color with a glossy finish.</p>
+        <div class="svc-price">$35 <small>& up</small></div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><i class="ti ti-diamond"></i></div>
+        <h3>Acrylic full set</h3>
+        <p>Custom-sculpted length and shape — full sets and fills.</p>
+        <div class="svc-price">$45 <small>& up</small></div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><i class="ti ti-flower"></i></div>
+        <h3>Spa pedicure</h3>
+        <p>Relaxing soak, exfoliation, massage, and polish.</p>
+        <div class="svc-price">$35 <small>& up</small></div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><i class="ti ti-palette"></i></div>
+        <h3>Nail art & design</h3>
+        <p>French tips, ombré, rhinestones, and seasonal custom art.</p>
+        <div class="svc-price">$10 <small>& up</small></div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><i class="ti ti-wand"></i></div>
+        <h3>Waxing</h3>
+        <p>Brows, lip, and full-body waxing for smooth, lasting results.</p>
+        <div class="svc-price">$12 <small>& up</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Our work</div>
+      <h2>Gallery</h2>
+      <p>A peek at the looks our clients love</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gal big"><i class="ti ti-camera"></i><span>Featured photo</span></div>
+      <div class="gal"><i class="ti ti-camera"></i><span>Add photo</span></div>
+      <div class="gal"><i class="ti ti-camera"></i><span>Add photo</span></div>
+      <div class="gal"><i class="ti ti-camera"></i><span>Add photo</span></div>
+      <div class="gal"><i class="ti ti-camera"></i><span>Add photo</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-text">
+      <h2>A fresh start, with you in mind.</h2>
+      <p>Porter's Nails and Spa is under new ownership with a renewed commitment to quality, cleanliness, and genuine care for every guest who walks through our door.</p>
+      <p>We've created a calm, welcoming space where you can relax, unwind, and leave feeling your absolute best. Come treat yourself — you've earned it.</p>
+    </div>
+    <div class="info-stack">
+      <div class="info-card">
+        <div class="ic-ico"><i class="ti ti-map-pin"></i></div>
+        <div><strong>Visit us</strong><span>23830 FM1314 Suite C, Porter, TX 77365</span></div>
+      </div>
+      <div class="info-card">
+        <div class="ic-ico"><i class="ti ti-clock"></i></div>
+        <div><strong>Hours</strong><span>Mon–Fri 9–7 · Sat 9–6 · Sun 10–5</span></div>
+      </div>
+      <div class="info-card">
+        <div class="ic-ico"><i class="ti ti-credit-card"></i></div>
+        <div><strong>Payment</strong><span>Cash & all major credit cards accepted</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="booking" id="book">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Reserve your spot</div>
+      <h2>Book an appointment</h2>
+      <p>Fill out the form below and we'll see you soon!</p>
+    </div>
+    <div class="booking-card">
+      <div class="form-row">
+        <div class="field"><label>Your name</label><input type="text" id="bName" placeholder="Jane Doe" /></div>
+        <div class="field"><label>Phone number</label><input type="tel" id="bPhone" placeholder="(281) 555-0000" /></div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label>Service</label>
+          <select id="bService">
+            <option>Classic manicure</option>
+            <option>Gel manicure</option>
+            <option>Acrylic full set</option>
+            <option>Spa pedicure</option>
+            <option>Nail art & design</option>
+            <option>Waxing</option>
+            <option>Other / not sure</option>
+          </select>
+        </div>
+        <div class="field"><label>Preferred date</label><input type="date" id="bDate" /></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label>Preferred time</label><input type="time" id="bTime" /></div>
+        <div class="field"><label>Email (optional)</label><input type="email" id="bEmail" placeholder="you@email.com" /></div>
+      </div>
+      <div class="form-row">
+        <div class="field full"><label>Notes (optional)</label><textarea id="bNotes" placeholder="Any special requests or questions?"></textarea></div>
+      </div>
+      <button class="btn btn-primary book-submit" id="bookBtn"><i class="ti ti-calendar-check"></i> Request appointment</button>
+      <div class="book-msg" id="bookMsg"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Porter's Nails & Spa</div>
+        <p>Your neighborhood nail salon in Porter, Texas. Quality care, a warm welcome, and a little luxury every visit.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Visit</h4>
+        <p>23830 FM1314 Suite C<br>Porter, TX 77365</p>
+        <a href="tel:2817477421">(281) 747-7421</a>
+      </div>
+      <div class="footer-col">
+        <h4>Hours</h4>
+        <p>Mon–Fri: 9 AM – 7 PM<br>Sat: 9 AM – 6 PM<br>Sun: 10 AM – 5 PM</p>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Porter's Nails and Spa · All rights reserved</div>
+  </div>
+</footer>
+
+<div class="overlay" id="ownerOverlay">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="modalTitle">Owner login</h3>
+      <button class="modal-close" id="modalClose"><i class="ti ti-x"></i></button>
+    </div>
+    <div class="modal-body" id="modalBody">
+      <div class="login-box" id="loginView">
+        <div class="lock-ico"><i class="ti ti-lock"></i></div>
+        <p>Enter your password to view booked appointments.</p>
+        <input type="password" id="ownerPass" placeholder="Password" />
+        <div class="login-err" id="loginErr">Incorrect password. Please try again.</div>
+        <button class="btn btn-primary" id="loginBtn" style="width:100%; justify-content:center;"><i class="ti ti-login"></i> Log in</button>
+        <div class="login-hint">Demo password: <strong>porters2026</strong></div>
+      </div>
+      <div id="dashView" style="display:none;">
+        <div class="dash-stats" id="dashStats"></div>
+        <div class="dash-actions">
+          <h4>Upcoming appointments</h4>
+          <button class="btn-logout" id="logoutBtn">Log out</button>
+        </div>
+        <div class="appt-list" id="apptList"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const STORE_KEY = 'porters_appointments';
+  const OWNER_PASSWORD = 'porters2026';
+
+  const overlay = document.getElementById('ownerOverlay');
+  const ownerLink = document.getElementById('ownerLink');
+  const modalClose = document.getElementById('modalClose');
+  const loginView = document.getElementById('loginView');
+  const dashView = document.getElementById('dashView');
+  const modalTitle = document.getElementById('modalTitle');
+  const loginBtn = document.getElementById('loginBtn');
+  const logoutBtn = document.getElementById('logoutBtn');
+  const ownerPass = document.getElementById('ownerPass');
+  const loginErr = document.getElementById('loginErr');
+
+  async function getAppointments() {
+    try {
+      const res = await window.storage.get(STORE_KEY);
+      return res && res.value ? JSON.parse(res.value) : [];
+    } catch (e) { return []; }
+  }
+
+  async function saveAppointment(appt) {
+    const list = await getAppointments();
+    list.push(appt);
+    try { await window.storage.set(STORE_KEY, JSON.stringify(list)); return true; }
+    catch (e) { return false; }
+  }
+
+  document.getElementById('bookBtn').addEventListener('click', async () => {
+    const name = document.getElementById('bName').value.trim();
+    const phone = document.getElementById('bPhone').value.trim();
+    const service = document.getElementById('bService').value;
+    const date = document.getElementById('bDate').value;
+    const time = document.getElementById('bTime').value;
+    const email = document.getElementById('bEmail').value.trim();
+    const notes = document.getElementById('bNotes').value.trim();
+    const msg = document.getElementById('bookMsg');
+
+    if (!name || !phone || !date || !time) {
+      msg.textContent = 'Please fill in your name, phone, date, and time.';
+      msg.style.background = 'var(--peach)';
+      msg.style.color = 'var(--peach-text)';
+      msg.classList.add('show');
+      return;
+    }
+
+    const ok = await saveAppointment({ name, phone, service, date, time, email, notes, created: Date.now() });
+    if (ok) {
+      msg.textContent = '✓ Thank you, ' + name + '! Your appointment request has been received. We\'ll call to confirm.';
+      msg.style.background = 'var(--lavender)';
+      msg.style.color = 'var(--lavender-text)';
+      msg.classList.add('show');
+      ['bName','bPhone','bDate','bTime','bEmail','bNotes'].forEach(id => document.getElementById(id).value = '');
+    } else {
+      msg.textContent = 'Something went wrong saving your request. Please call us at (281) 747-7421.';
+      msg.style.background = 'var(--peach)';
+      msg.style.color = 'var(--peach-text)';
+      msg.classList.add('show');
+    }
+  });
+
+  ownerLink.addEventListener('click', (e) => { e.preventDefault(); overlay.classList.add('show'); });
+  modalClose.addEventListener('click', () => overlay.classList.remove('show'));
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.classList.remove('show'); });
+
+  loginBtn.addEventListener('click', doLogin);
+  ownerPass.addEventListener('keydown', (e) => { if (e.key === 'Enter') doLogin(); });
+
+  function doLogin() {
+    if (ownerPass.value === OWNER_PASSWORD) {
+      loginErr.classList.remove('show');
+      ownerPass.value = '';
+      showDashboard();
+    } else {
+      loginErr.classList.add('show');
+    }
+  }
+
+  logoutBtn.addEventListener('click', () => {
+    dashView.style.display = 'none';
+    loginView.style.display = 'block';
+    modalTitle.textContent = 'Owner login';
+  });
+
+  function fmtDate(d) {
+    const parts = d.split('-');
+    const dt = new Date(parts[0], parts[1]-1, parts[2]);
+    return { day: dt.getDate(), mon: dt.toLocaleString('en-US',{month:'short'}) };
+  }
+  function fmtTime(t) {
+    if (!t) return '';
+    let [h,m] = t.split(':').map(Number);
+    const ap = h >= 12 ? 'PM' : 'AM';
+    h = h % 12 || 12;
+    return h + ':' + String(m).padStart(2,'0') + ' ' + ap;
+  }
+
+  async function showDashboard() {
+    loginView.style.display = 'none';
+    dashView.style.display = 'block';
+    modalTitle.textContent = 'Appointment dashboard';
+
+    const list = await getAppointments();
+    list.sort((a,b) => (a.date + a.time).localeCompare(b.date + b.time));
+
+    const today = new Date().toISOString().slice(0,10);
+    const upcoming = list.filter(a => a.date >= today);
+
+    const stats = document.getElementById('dashStats');
+    stats.innerHTML =
+      '<div class="stat"><div class="s-label">Total bookings</div><div class="s-val">' + list.length + '</div></div>' +
+      '<div class="stat"><div class="s-label">Upcoming</div><div class="s-val">' + upcoming.length + '</div></div>' +
+      '<div class="stat"><div class="s-label">This week</div><div class="s-val">' + upcoming.filter(a => {
+        const dt = new Date(a.date); const now = new Date();
+        return (dt - now) / 86400000 <= 7;
+      }).length + '</div></div>';
+
+    const cont = document.getElementById('apptList');
+    if (list.length === 0) {
+      cont.innerHTML = '<div class="dash-empty"><i class="ti ti-calendar-off"></i><p>No appointments booked yet.<br>New requests from the booking form will appear here.</p></div>';
+      return;
+    }
+
+    cont.innerHTML = list.map(a => {
+      const d = fmtDate(a.date);
+      return '<div class="appt">' +
+        '<div class="a-date"><div class="ad-day">' + d.day + '</div><div class="ad-mon">' + d.mon + '</div></div>' +
+        '<div><div class="a-name">' + a.name + '</div><div class="a-meta"><i class="ti ti-phone" style="font-size:12px;"></i> ' + a.phone + (a.notes ? ' · ' + a.notes : '') + '</div></div>' +
+        '<div style="text-align:right;"><div class="a-svc">' + a.service + '</div><div class="a-time" style="margin-top:6px;">' + fmtTime(a.time) + '</div></div>' +
+      '</div>';
+    }).join('');
+  }
+</script>
+</body>
+</html>
