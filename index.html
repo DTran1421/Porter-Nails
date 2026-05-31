@@ -13,816 +13,1092 @@
   :root {
     --rose:#FBEAF0; --rose-mid:#F4C0D1; --rose-deep:#ED93B1; --rose-dark:#B84A6E; --rose-text:#72243E;
     --lavender:#EEEDFE; --lavender-mid:#CECBF6; --lavender-dark:#534AB7; --lavender-text:#3C3489;
-    --cream:#FDF8F5; --peach:#FAECE5; --gold:#D4AF37; --gold-dark:#AA8413;
-    --text-dark:#2B2627; --text-muted:#706668; --white:#FFFFFF;
-    --shadow:0 8px 30px rgba(184,74,110,0.06); --radius:16px;
+    --cream:#FDF8F5; --peach:#FAECE7; --peach-mid:#F5C4B3; --peach-text:#712B13;
+    --text:#3a2a2a; --text-soft:#6b4f4f; --text-muted:#9c8585; --white:#fff;
+    --shadow:0 10px 40px rgba(184,74,110,0.08); --shadow-sm:0 4px 16px rgba(184,74,110,0.06);
+    --good:#2e7d52; --good-bg:#E1F5EE;
   }
-  body { font-family: 'Nunito', sans-serif; background-color: var(--cream); color: var(--text-dark); -webkit-font-smoothing: antialiased; line-height: 1.6; padding-bottom: 60px; }
-  h1, h2, h3, .brand-font { font-family: 'Playfair Display', serif; }
-  .navbar { background: rgba(253, 248, 245, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(244,192,209,0.3); }
-  .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
-  .logo { display: flex; flex-direction: column; text-decoration: none; color: var(--rose-text); }
-  .logo-top { font-size: 24px; font-weight: 600; letter-spacing: 1px; line-height: 1.1; }
-  .logo-sub { font-size: 10px; font-family: 'Nunito', sans-serif; text-transform: uppercase; letter-spacing: 3px; color: var(--rose-dark); margin-top: 2px; }
-  .nav-links { display: flex; gap: 25px; align-items: center; list-style: none; }
-  .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 500; font-size: 15px; transition: color 0.3s; }
-  .nav-links a:hover, .nav-links a.active { color: var(--rose-dark); }
-  .btn-book { background: linear-gradient(135deg, var(--rose-dark), var(--rose-deep)); color: var(--white) !important; padding: 10px 22px; border-radius: 30px; box-shadow: 0 4px 15px rgba(184,74,110,0.2); font-weight: 600 !important; transition: transform 0.3s, box-shadow 0.3s !important; }
-  .btn-book:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(184,74,110,0.3); }
-  .hero { position: relative; padding: 90px 20px 80px; text-align: center; background: radial-gradient(circle at 80% 20%, var(--rose) 0%, transparent 45%), radial-gradient(circle at 10% 80%, var(--lavender) 0%, transparent 45%); max-width: 1200px; margin: 0 auto; }
-  .hero h1 { font-size: 48px; color: var(--rose-text); line-height: 1.2; margin-bottom: 20px; font-weight: 500; }
-  .hero p { font-size: 18px; color: var(--text-muted); max-width: 600px; margin: 0 auto 35px; font-weight: 300; }
-  .hero-buttons { display: flex; justify-content: center; gap: 15px; }
-  .btn-lg { padding: 14px 32px; border-radius: 30px; font-weight: 600; font-size: 16px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; border: none; transition: all 0.3s; }
-  .btn-primary { background: linear-gradient(135deg, var(--rose-dark), var(--rose-deep)); color: var(--white); box-shadow: 0 4px 20px rgba(184,74,110,0.25); }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(184,74,110,0.35); }
-  .btn-secondary { background: var(--white); color: var(--rose-text); border: 1px solid var(--rose-mid); }
-  .btn-secondary:hover { background: var(--rose); }
-  .section-title { text-align: center; font-size: 36px; color: var(--rose-text); margin-bottom: 12px; font-weight: 500; }
-  .section-subtitle { text-align: center; color: var(--text-muted); font-size: 15px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 45px; font-weight: 600; }
-  .services-layout { max-width: 1200px; margin: 0 auto; padding: 40px 20px; display: grid; grid-template-columns: 280px 1fr; gap: 40px; }
-  .cat-menu { display: flex; flex-direction: column; gap: 8px; position: sticky; top: 100px; height: max-content; }
-  .cat-btn { background: var(--white); border: 1px solid rgba(244,192,209,0.2); padding: 14px 20px; border-radius: var(--radius); text-align: left; font-size: 15px; font-weight: 600; color: var(--text-dark); cursor: pointer; display: flex; align-items: center; gap: 12px; box-shadow: var(--shadow); transition: all 0.25s; }
-  .cat-btn i { font-size: 18px; color: var(--rose-dark); }
-  .cat-btn:hover { border-color: var(--rose-mid); transform: translateX(3px); }
-  .cat-btn.active { background: linear-gradient(135deg, var(--rose-dark), var(--rose-deep)); color: var(--white); border-color: transparent; }
-  .cat-btn.active i { color: var(--white); }
-  .items-panel { background: var(--white); border-radius: var(--radius); padding: 35px; box-shadow: var(--shadow); border: 1px solid rgba(184,74,110,0.03); min-height: 400px; }
-  .items-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-  .menu-item { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 18px; border-bottom: 1px dashed var(--peach); position: relative; }
-  .menu-item:last-child { border-bottom: none; padding-bottom: 0; }
-  .item-details h4 { font-size: 17px; font-weight: 600; color: var(--text-dark); margin-bottom: 4px; display: inline-flex; align-items: center; gap: 6px; }
-  .item-details p { font-size: 14px; color: var(--text-muted); font-weight: 300; }
-  .item-price { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 600; color: var(--rose-text); display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
-  .btn-add-wiz { background: var(--rose); color: var(--rose-text); border: none; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 14px; transition: all 0.2s; }
-  .btn-add-wiz:hover { background: var(--rose-dark); color: var(--white); }
-  .badge-plus { font-size: 10px; font-family: 'Nunito', sans-serif; background: var(--lavender); color: var(--lavender-text); padding: 2px 6px; border-radius: 4px; font-weight: 600; margin-left: 5px; text-transform: uppercase; }
-  .booking-section { background: var(--white); padding: 60px 20px; border-top: 1px solid var(--rose); border-bottom: 1px solid var(--rose); }
-  .booking-card { max-width: 680px; margin: 0 auto; background: var(--cream); border-radius: 20px; box-shadow: var(--shadow); border: 1px solid rgba(244,192,209,0.3); overflow: hidden; }
-  .wiz-header { background: linear-gradient(135deg, var(--rose-dark), var(--rose-deep)); padding: 25px; color: var(--white); display: flex; justify-content: space-between; align-items: center; }
-  .wiz-header h3 { font-size: 20px; font-weight: 500; }
-  .wiz-steps-indicator { font-size: 13px; font-weight: 600; opacity: 0.85; background: rgba(0,0,0,0.1); padding: 4px 10px; border-radius: 12px; }
-  .wiz-body { padding: 30px; min-height: 280px; }
-  .wiz-step { display: none; }
-  .wiz-step.active { display: block; animation: fadeIn 0.4s ease; }
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-  .wiz-grid-cats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
-  .wiz-cat-card { background: var(--white); border: 1px solid var(--rose-mid); padding: 20px; border-radius: 12px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; font-weight: 600; color: var(--text-dark); transition: all 0.2s; }
-  .wiz-cat-card i { font-size: 28px; color: var(--rose-dark); }
-  .wiz-cat-card:hover { border-color: var(--rose-dark); transform: translateY(-2px); }
-  .wiz-item-row { background: var(--white); border: 1px solid rgba(244,192,209,0.4); padding: 14px 18px; border-radius: 12px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: all 0.2s; }
-  .wiz-item-row:hover { border-color: var(--rose-dark); }
-  .wiz-item-name { font-weight: 600; font-size: 15px; }
-  .wiz-item-price { font-family: 'Playfair Display', serif; font-weight: 600; color: var(--rose-dark); }
-  .wiz-tech-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
-  .wiz-tech-card { background: var(--white); border: 1px solid rgba(244,192,209,0.4); padding: 20px; border-radius: 12px; cursor: pointer; text-align: center; transition: all 0.2s; }
-  .wiz-tech-card:hover { border-color: var(--rose-dark); }
-  .wiz-tech-avatar { width: 50px; height: 50px; background: var(--rose); border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; color: var(--rose-dark); font-size: 20px; font-weight: 600; }
-  .wiz-tech-name { font-weight: 600; color: var(--text-dark); }
-  .wiz-datetime-container { display: grid; grid-template-columns: 1.2fr 1fr; gap: 20px; }
-  .wiz-date-picker input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--rose-mid); font-family: inherit; margin-top: 8px; font-size: 15px; }
-  .wiz-time-slots { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; max-height: 220px; overflow-y: auto; padding-right: 5px; }
-  .time-slot { background: var(--white); border: 1px solid rgba(244,192,209,0.4); padding: 10px; text-align: center; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 600; transition: all 0.2s; }
-  .time-slot:hover:not(.disabled) { border-color: var(--rose-dark); background: var(--rose); }
-  .time-slot.disabled { background: #f0ebec; color: #b0a6a8; cursor: not-allowed; border-color: transparent; }
-  .wiz-form { display: flex; flex-direction: column; gap: 14px; }
-  .wiz-form label { font-size: 14px; font-weight: 600; color: var(--text-muted); display: flex; flex-direction: column; gap: 6px; }
-  .wiz-form input { padding: 12px; border-radius: 8px; border: 1px solid var(--rose-mid); font-family: inherit; font-size: 15px; }
-  .wiz-summary-box { background: var(--white); padding: 22px; border-radius: 12px; border: 1px solid var(--rose-mid); margin-bottom: 20px; }
-  .sum-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--cream); font-size: 15px; }
-  .sum-row:last-child { border-bottom: none; padding-top: 12px; margin-top: 4px; }
-  .sum-label { color: var(--text-muted); }
-  .sum-val { font-weight: 600; text-align: right; }
-  .sum-total { font-size: 18px; color: var(--rose-text); font-family: 'Playfair Display', serif; }
-  .wiz-footer { padding: 20px 30px; background: var(--white); border-top: 1px solid rgba(244,192,209,0.3); display: flex; justify-content: space-between; }
-  .btn-wiz-prev { background: transparent; color: var(--text-muted); border: none; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 4px; font-size: 15px; }
-  .btn-wiz-next { background: var(--rose-dark); color: var(--white); border: none; padding: 10px 24px; border-radius: 20px; font-weight: 600; cursor: pointer; font-size: 15px; transition: background 0.2s; }
-  .btn-wiz-next:hover { background: var(--rose-text); }
-  .wiz-selected { border-color: var(--rose-dark) !important; background: var(--rose) !important; box-shadow: 0 4px 12px rgba(184,74,110,0.08); }
-  .info-strip { max-width: 1200px; margin: 40px auto 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 0 20px; }
-  .info-block { background: var(--white); padding: 25px; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid rgba(244,192,209,0.15); display: flex; gap: 15px; align-items: flex-start; }
-  .info-icon { background: var(--rose); color: var(--rose-dark); width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; shrink: 0; }
-  .info-text h5 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
-  .info-text p { font-size: 14px; color: var(--text-muted); font-weight: 300; white-space: pre-line; }
-  .reviews-section { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
-  .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
-  .review-card { background: var(--white); padding: 30px; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid rgba(184,74,110,0.02); }
-  .stars { color: var(--gold); margin-bottom: 12px; font-size: 14px; }
-  .review-card p { font-size: 14.5px; color: var(--text-dark); font-style: italic; margin-bottom: 15px; font-weight: 300; }
-  .review-author { font-size: 13px; font-weight: 700; color: var(--rose-text); text-transform: uppercase; letter-spacing: 1px; }
-  .gallery-section { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
-  .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-  .gallery-item { aspect-ratio: 1; background-color: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); position: relative; border: 4px solid var(--white); }
-  .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-  .gallery-item:hover img { transform: scale(1.06); }
-  .toast { position: fixed; bottom: 25px; right: 25px; background: #2b2627; color: #fff; padding: 12px 24px; border-radius: 30px; font-size: 14px; font-weight: 600; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 10000; opacity: 0; transform: translateY(10px); transition: all 0.3s ease; display: none; }
-  .toast.show { opacity: 1; transform: translateY(0); display: block; }
-  .dash-container { max-width: 1200px; margin: 40px auto; padding: 0 20px; display: none; }
-  .dash-login { max-width: 400px; margin: 100px auto; background: var(--white); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--rose-mid); }
-  .dash-tabs { display: flex; gap: 10px; margin-bottom: 25px; border-bottom: 1px solid var(--rose-mid); padding-bottom: 10px; }
-  .dash-tab { background: none; border: none; padding: 8px 16px; font-size: 15px; font-weight: 600; color: var(--text-muted); cursor: pointer; }
-  .dash-tab.active { color: var(--rose-dark); border-bottom: 2px solid var(--rose-dark); }
-  .dash-pane { display: none; }
-  .dash-pane.active { display: block; }
-  .table-res { width: 100%; border-collapse: collapse; background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); margin-top: 15px; font-size: 14px; }
-  .table-res th, .table-res td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--cream); }
-  .table-res th { background: var(--rose); color: var(--rose-text); font-weight: 600; }
-  .dash-actions-row { display: flex; gap: 10px; margin-bottom: 20px; align-items: center; justify-content: space-between; }
-  .status-badge { padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; text-transform: uppercase; }
-  .status-pending { background: #fff3cd; color: #856404; }
-  .status-confirmed { background: #d4edda; color: #155724; }
-  .status-cancelled { background: #f8d7da; color: #721c24; }
-  .btn-sm { padding: 5px 10px; border-radius: 4px; font-size: 12px; font-weight: 600; border: none; cursor: pointer; margin-right: 4px; }
-  .btn-sm-conf { background: #28a745; color: white; }
-  .btn-sm-canc { background: #dc3545; color: white; }
-  .dash-cat-sect { background: var(--white); border-radius: var(--radius); padding: 25px; box-shadow: var(--shadow); margin-bottom: 25px; }
-  .dash-cat-title { font-size: 18px; color: var(--rose-text); margin-bottom: 15px; border-bottom: 1px solid var(--rose); padding-bottom: 6px; display: flex; justify-content: space-between; align-items: center; }
-  .dash-item-edit-row { display: flex; gap: 10px; align-items: center; padding: 8px 0; border-bottom: 1px dashed var(--cream); }
-  .dash-item-edit-row input[type="text"] { flex: 1; padding: 6px; border: 1px solid var(--rose-mid); border-radius: 4px; font-family: inherit; }
-  .dash-item-edit-row input[type="number"] { width: 70px; padding: 6px; border: 1px solid var(--rose-mid); border-radius: 4px; font-family: inherit; }
-  @media(max-width:992px){
-    .services-layout { grid-template-columns: 1fr; }
-    .cat-menu { position: static; flex-direction: row; overflow-x: auto; padding-bottom: 10px; }
-    .cat-btn { shrink: 0; }
-    .info-strip, .reviews-grid, .gallery-grid { grid-template-columns: 1fr; }
-    .wiz-datetime-container { grid-template-columns: 1fr; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Nunito',sans-serif; background:var(--cream); color:var(--text); line-height:1.75; overflow-x:hidden; font-size:16px; }
+  .wrap { max-width:1180px; margin:0 auto; padding:0 2rem; }
+
+  nav { position:sticky; top:0; z-index:100; background:rgba(253,248,245,0.92); backdrop-filter:blur(12px); border-bottom:1px solid var(--rose-mid); }
+  .nav-inner { display:flex; justify-content:space-between; align-items:center; padding:1.1rem 2rem; max-width:1180px; margin:0 auto; }
+  .logo { display:flex; align-items:center; text-decoration:none; }
+  .logo img { height:52px; width:auto; display:block; }
+  .nav-links { display:flex; align-items:center; gap:2rem; list-style:none; }
+  .nav-links a { text-decoration:none; color:var(--text-soft); font-size:15px; font-weight:600; transition:color .2s; }
+  .nav-links a:hover { color:var(--rose-text); }
+  .nav-cta { background:var(--rose-dark); color:var(--white)!important; padding:.6rem 1.4rem; border-radius:25px; white-space:nowrap; transition:transform .2s,box-shadow .2s; }
+  .nav-cta:hover { transform:translateY(-2px); box-shadow:0 6px 18px rgba(184,74,110,.3); }
+  .nav-owner { display:inline-flex; align-items:center; gap:6px; color:var(--lavender-dark)!important; font-size:13px; white-space:nowrap; }
+  .nav-toggle { display:none; background:none; border:none; cursor:pointer; padding:8px; color:var(--rose-text); }
+  .nav-toggle svg { display:block; }
+
+  .hero { position:relative; padding:5.5rem 0 5rem; overflow:hidden; }
+  .hero::before { content:''; position:absolute; top:-120px; right:-120px; width:480px; height:480px; background:var(--rose); border-radius:50%; }
+  .hero::after { content:''; position:absolute; bottom:-160px; left:-100px; width:380px; height:380px; background:var(--lavender); border-radius:50%; }
+  .hero-grid { position:relative; z-index:1; display:grid; grid-template-columns:1.1fr .9fr; gap:3.5rem; align-items:center; }
+  .hero-badge { display:inline-flex; align-items:center; gap:7px; background:var(--lavender); color:var(--lavender-text); font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:6px 16px; border-radius:25px; margin-bottom:1.5rem; }
+  .hero h1 { font-family:'Playfair Display',serif; font-size:56px; font-weight:600; line-height:1.08; color:var(--rose-text); margin-bottom:1.25rem; }
+  .hero h1 em { font-style:italic; color:var(--rose-dark); }
+  .hero p { font-size:18px; color:var(--text-soft); max-width:440px; margin-bottom:2rem; }
+  .hero-btns { display:flex; gap:14px; flex-wrap:wrap; }
+  .btn { font-family:'Nunito',sans-serif; font-size:16px; font-weight:700; padding:.95rem 2rem; border-radius:30px; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:8px; border:none; transition:transform .2s,box-shadow .2s,background .2s; }
+  .btn-primary { background:var(--rose-dark); color:var(--white); }
+  .btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 22px rgba(184,74,110,.3); }
+  .btn-ghost { background:var(--white); color:var(--rose-text); border:2px solid var(--rose-mid); }
+  .btn-ghost:hover { background:var(--rose); border-color:var(--rose-deep); }
+  .hero-visual { position:relative; aspect-ratio:4/5; background:linear-gradient(160deg,var(--rose),var(--peach)); border-radius:28px; box-shadow:var(--shadow); display:flex; align-items:center; justify-content:center; }
+  .hero-visual .ph { text-align:center; color:var(--rose-dark); }
+  .hero-visual .ph i { font-size:56px; opacity:.5; }
+  .hero-visual .ph p { font-size:13px; font-weight:600; margin-top:8px; letter-spacing:.05em; }
+
+  section { padding:4.5rem 0; }
+  .sec-head { text-align:center; margin-bottom:3rem; }
+  .sec-eyebrow { font-size:12px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--rose-dark); margin-bottom:.5rem; }
+  .sec-head h2 { font-family:'Playfair Display',serif; font-size:40px; font-weight:500; color:var(--rose-text); }
+  .sec-head p { color:var(--text-soft); margin-top:.5rem; font-size:17px; }
+
+  .services { background:var(--white); }
+  .services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; }
+  .svc-card { background:var(--cream); border:1px solid var(--rose-mid); border-radius:20px; padding:1.75rem; transition:transform .25s,box-shadow .25s,border-color .25s; }
+  .svc-card:hover { transform:translateY(-6px); box-shadow:var(--shadow); border-color:var(--rose-deep); }
+  .svc-icon { width:52px; height:52px; border-radius:14px; background:var(--rose); display:flex; align-items:center; justify-content:center; margin-bottom:1rem; }
+  .svc-icon i { font-size:26px; color:var(--rose-dark); }
+  .svc-card:nth-child(3n+2) .svc-icon { background:var(--lavender); } .svc-card:nth-child(3n+2) .svc-icon i { color:var(--lavender-dark); }
+  .svc-card:nth-child(3n) .svc-icon { background:var(--peach); } .svc-card:nth-child(3n) .svc-icon i { color:var(--peach-text); }
+  .svc-card h3 { font-size:19px; font-weight:700; color:var(--rose-text); margin-bottom:.4rem; }
+  .svc-card p { font-size:14px; color:var(--text-soft); margin-bottom:1rem; min-height:42px; }
+  .svc-price { font-family:'Playfair Display',serif; font-size:22px; font-weight:600; color:var(--rose-dark); }
+  .svc-price small { font-size:13px; font-weight:400; color:var(--text-muted); font-family:'Nunito'; }
+  .svc-empty { grid-column:1/-1; text-align:center; color:var(--text-muted); padding:2rem; }
+
+  .gallery-grid { display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:200px; gap:1rem; }
+  .gal { background:linear-gradient(150deg,var(--lavender),var(--rose)); border-radius:18px; display:flex; flex-direction:column; align-items:center; justify-content:center; color:var(--lavender-dark); gap:6px; }
+  .gal i { font-size:30px; opacity:.55; } .gal span { font-size:12px; font-weight:600; }
+  .gal.big { grid-column:span 2; grid-row:span 2; }
+  .gal:nth-child(even) { background:linear-gradient(150deg,var(--peach),var(--rose)); color:var(--peach-text); }
+
+  .about { background:var(--white); }
+  .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:3.5rem; align-items:center; }
+  .about-text h2 { font-family:'Playfair Display',serif; font-size:38px; font-weight:500; color:var(--rose-text); line-height:1.15; margin-bottom:1.25rem; }
+  .about-text p { color:var(--text-soft); margin-bottom:1rem; font-size:16px; }
+  .info-stack { display:flex; flex-direction:column; gap:1rem; }
+  .info-card { display:flex; align-items:center; gap:1rem; background:var(--cream); border:1px solid var(--rose-mid); border-radius:16px; padding:1.1rem 1.4rem; }
+  .info-card .ic-ico { width:46px; height:46px; flex-shrink:0; border-radius:12px; background:var(--lavender); display:flex; align-items:center; justify-content:center; }
+  .info-card .ic-ico i { font-size:22px; color:var(--lavender-dark); }
+  .info-card:nth-child(2) .ic-ico { background:var(--rose); } .info-card:nth-child(2) .ic-ico i { color:var(--rose-dark); }
+  .info-card:nth-child(3) .ic-ico { background:var(--peach); } .info-card:nth-child(3) .ic-ico i { color:var(--peach-text); }
+  .info-card strong { display:block; font-size:15px; color:var(--rose-text); font-weight:700; }
+  .info-card span { font-size:13px; color:var(--text-soft); }
+
+  .booking { background:linear-gradient(170deg,var(--rose) 0%,var(--cream) 100%); }
+  .wiz { max-width:760px; margin:0 auto; background:var(--white); border-radius:24px; box-shadow:var(--shadow); padding:2.25rem 2.5rem 2.5rem; }
+  .wiz-steps { display:flex; align-items:center; justify-content:center; gap:0; margin-bottom:2rem; flex-wrap:wrap; }
+  .wiz-step { display:flex; align-items:center; gap:8px; color:var(--text-muted); font-size:12px; font-weight:700; }
+  .wiz-step .num { width:26px; height:26px; border-radius:50%; background:var(--rose); color:var(--rose-text); display:flex; align-items:center; justify-content:center; font-size:12px; }
+  .wiz-step.active .num { background:var(--rose-dark); color:var(--white); }
+  .wiz-step.active { color:var(--rose-text); }
+  .wiz-step.done .num { background:var(--good-bg); color:var(--good); }
+  .wiz-line { width:28px; height:2px; background:var(--rose-mid); margin:0 8px; }
+  .wiz-title { font-family:'Playfair Display',serif; font-size:26px; font-weight:600; color:var(--rose-text); text-align:center; margin-bottom:.25rem; }
+  .wiz-sub { text-align:center; color:var(--text-soft); font-size:14px; margin-bottom:1.75rem; }
+  .choice-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.85rem; }
+  .choice { border:1.5px solid var(--rose-mid); border-radius:14px; padding:1.1rem 1.25rem; cursor:pointer; background:var(--cream); transition:border-color .2s,background .2s; display:flex; justify-content:space-between; align-items:center; }
+  .choice:hover { border-color:var(--rose-dark); background:var(--rose); }
+  .choice.sel { border-color:var(--rose-dark); background:var(--rose); box-shadow:0 0 0 2px var(--rose-deep); }
+  .choice .c-name { font-weight:700; color:var(--rose-text); font-size:15px; }
+  .choice .c-meta { font-size:12px; color:var(--text-soft); margin-top:2px; }
+  .choice .c-price { font-size:13px; font-weight:700; color:var(--rose-dark); }
+  .tech-ava { font-size:11px; color:var(--lavender-dark); background:var(--lavender); padding:3px 9px; border-radius:12px; font-weight:700; }
+
+  .cal-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; }
+  .cal-head .cal-mon { font-family:'Playfair Display',serif; font-size:20px; font-weight:600; color:var(--rose-text); }
+  .cal-nav { background:var(--cream); border:1px solid var(--rose-mid); width:36px; height:36px; border-radius:50%; cursor:pointer; color:var(--rose-text); font-size:16px; display:flex; align-items:center; justify-content:center; }
+  .cal-nav:hover { background:var(--rose); }
+  .cal-nav:disabled { opacity:.35; cursor:not-allowed; }
+  .cal-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:6px; }
+  .cal-dow { text-align:center; font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase; padding:4px 0; }
+  .cal-day { aspect-ratio:1; display:flex; align-items:center; justify-content:center; border-radius:10px; font-size:14px; font-weight:600; }
+  .cal-day.open { background:var(--cream); border:1.5px solid var(--rose-mid); color:var(--rose-text); cursor:pointer; }
+  .cal-day.open:hover { background:var(--rose); border-color:var(--rose-dark); }
+  .cal-day.sel { background:var(--rose-dark); color:var(--white); border-color:var(--rose-dark); }
+  .cal-day.blocked { color:var(--text-muted); text-decoration:line-through; background:transparent; opacity:.5; }
+  .cal-day.empty { background:transparent; }
+  .cal-legend { display:flex; gap:1.25rem; justify-content:center; margin-top:1rem; font-size:12px; color:var(--text-soft); }
+  .cal-legend span { display:inline-flex; align-items:center; gap:6px; }
+  .lg-dot { width:12px; height:12px; border-radius:4px; }
+
+  .slot-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:.6rem; }
+  .slot { padding:.65rem; text-align:center; border:1.5px solid var(--rose-mid); border-radius:10px; background:var(--cream); cursor:pointer; font-weight:700; color:var(--rose-text); font-size:14px; }
+  .slot:hover { background:var(--rose); border-color:var(--rose-dark); }
+  .slot.sel { background:var(--rose-dark); color:var(--white); border-color:var(--rose-dark); }
+  .slot.taken { opacity:.4; text-decoration:line-through; cursor:not-allowed; background:transparent; }
+
+  .field { display:flex; flex-direction:column; gap:6px; margin-bottom:1rem; }
+  .field label { font-size:13px; font-weight:700; color:var(--rose-text); }
+  .field input, .field textarea, .field select { font-family:'Nunito'; font-size:15px; padding:.75rem 1rem; border:1.5px solid var(--rose-mid); border-radius:12px; background:var(--cream); color:var(--text); outline:none; }
+  .field input:focus, .field textarea:focus, .field select:focus { border-color:var(--rose-dark); }
+  .field textarea { resize:none; height:70px; }
+  .field-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  .summary { background:var(--lavender); border-radius:14px; padding:1.1rem 1.4rem; margin-bottom:1.25rem; }
+  .summary div { display:flex; justify-content:space-between; font-size:14px; padding:3px 0; color:var(--lavender-text); }
+  .summary strong { font-weight:700; }
+  .wiz-actions { display:flex; justify-content:space-between; margin-top:1.5rem; }
+  .wiz-back { background:transparent; border:none; color:var(--text-soft); font-weight:700; cursor:pointer; font-family:'Nunito'; font-size:14px; display:inline-flex; align-items:center; gap:6px; }
+  .wiz-back:hover { color:var(--rose-text); }
+  .wiz-done { text-align:center; padding:1rem 0; }
+  .wiz-done .check { width:72px; height:72px; border-radius:50%; background:var(--good-bg); display:flex; align-items:center; justify-content:center; margin:0 auto 1.25rem; }
+  .wiz-done .check i { font-size:38px; color:var(--good); }
+  .wiz-done h3 { font-family:'Playfair Display'; font-size:26px; color:var(--rose-text); margin-bottom:.5rem; }
+  .wiz-done p { color:var(--text-soft); font-size:15px; max-width:440px; margin:0 auto 1rem; }
+  .pending-note { background:var(--peach); color:var(--peach-text); border-radius:12px; padding:.85rem 1.1rem; font-size:13px; font-weight:600; max-width:460px; margin:0 auto; }
+  .empty-techs { text-align:center; padding:2rem 1rem; color:var(--text-muted); }
+  .empty-techs i { font-size:40px; opacity:.4; }
+
+  footer { background:var(--rose-text); color:#f4d0df; padding:3rem 0 2rem; }
+  .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr; gap:2rem; margin-bottom:2rem; }
+  .footer-logo { font-family:'Playfair Display',serif; font-size:24px; color:var(--white); margin-bottom:.75rem; }
+  footer p, footer a { font-size:14px; color:#f0c8d8; line-height:1.9; text-decoration:none; }
+  footer a:hover { color:var(--white); }
+  .footer-col h4 { color:var(--white); font-size:15px; margin-bottom:.75rem; font-weight:700; }
+  .footer-col a { display:block; }
+  .map-link { margin-bottom:.5rem; }
+  .map-link i { font-size:13px; }
+  .map-link:hover { text-decoration:underline; }
+
+  .promo-bar { background:var(--rose-dark); color:#fff; text-align:center; padding:.6rem 1rem; font-size:14px; font-weight:700; letter-spacing:.01em; }
+  .promo-bar i { margin-right:6px; }
+  .open-badge { display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:700; letter-spacing:.04em; padding:6px 14px; border-radius:25px; margin-bottom:1.5rem; margin-left:8px; }
+  .open-badge.open { background:var(--good-bg); color:var(--good); }
+  .open-badge.closed { background:#f0e0e0; color:#9a5a5a; }
+  .open-badge .dot { width:8px; height:8px; border-radius:50%; background:currentColor; }
+  .gal-photo { background-size:cover; background-position:center; position:relative; }
+  .gal-cap { position:absolute; left:0; right:0; bottom:0; background:linear-gradient(transparent,rgba(58,23,38,.65)); color:#fff; font-size:12px; font-weight:600; padding:1.2rem .8rem .6rem; }
+  /* owner-facing helpers */
+  .help { background:var(--lavender); color:var(--lavender-text); border-radius:12px; padding:.85rem 1.1rem; font-size:14px; margin-bottom:1.25rem; line-height:1.5; }
+  .help b { font-weight:800; }
+  .big-input { width:100%; font-family:'Nunito'; font-size:16px; padding:.85rem 1rem; border:1.5px solid var(--rose-mid); border-radius:12px; background:var(--cream); color:var(--text); outline:none; margin-bottom:.9rem; }
+  .big-input:focus { border-color:var(--rose-dark); }
+  .big-label { font-size:15px; font-weight:800; color:var(--rose-text); display:block; margin:0 0 .4rem; }
+  .btn-big { width:100%; justify-content:center; font-size:16px; padding:1rem; }
+  .gphoto-row { display:flex; gap:1rem; align-items:center; background:var(--cream); border:1px solid var(--rose-mid); border-radius:14px; padding:.75rem; margin-bottom:.75rem; }
+  .gphoto-row img { width:64px; height:64px; object-fit:cover; border-radius:10px; flex-shrink:0; background:var(--rose); }
+  .gphoto-row .gp-cap { flex:1; font-size:14px; color:var(--rose-text); font-weight:600; }
+  .toggle-row { display:flex; align-items:center; justify-content:space-between; background:var(--cream); border:1px solid var(--rose-mid); border-radius:14px; padding:1rem 1.25rem; margin-bottom:1rem; }
+  .toggle-row .tr-label { font-size:15px; font-weight:800; color:var(--rose-text); }
+  .switch { position:relative; width:56px; height:30px; flex-shrink:0; }
+  .switch input { opacity:0; width:0; height:0; }
+  .slider-sw { position:absolute; inset:0; background:var(--rose-mid); border-radius:30px; transition:.2s; cursor:pointer; }
+  .slider-sw::before { content:''; position:absolute; height:24px; width:24px; left:3px; top:3px; background:#fff; border-radius:50%; transition:.2s; }
+  .switch input:checked + .slider-sw { background:var(--good); }
+  .switch input:checked + .slider-sw::before { transform:translateX(26px); }
+  .hours-edit-row { display:grid; grid-template-columns:90px auto 1fr; gap:.6rem; align-items:center; margin-bottom:.6rem; }
+  .hours-edit-row .hd-day { font-weight:800; color:var(--rose-text); font-size:14px; }
+  .hours-edit-row select { font-family:'Nunito'; font-size:14px; padding:.5rem; border:1.5px solid var(--rose-mid); border-radius:10px; background:var(--white); }
+  .hours-edit-row .hd-times { display:flex; gap:.4rem; align-items:center; }
+
+  .faq { background:var(--white); }
+  .faq-list { max-width:780px; margin:0 auto; }
+  .faq-item { background:var(--cream); border:1px solid var(--rose-mid); border-radius:16px; padding:1.4rem 1.6rem; margin-bottom:1rem; }
+  .faq-item h3 { font-size:18px; font-weight:800; color:var(--rose-text); margin-bottom:.4rem; display:flex; gap:.6rem; align-items:flex-start; }
+  .faq-item h3 i { color:var(--rose-dark); font-size:20px; flex-shrink:0; margin-top:1px; }
+  .faq-item p { font-size:16px; color:var(--text-soft); margin:0; }
+  .lang-btn { background:var(--lavender); color:var(--lavender-text); border:1px solid var(--lavender-mid); border-radius:20px; padding:.45rem .9rem; font-family:'Nunito'; font-size:14px; font-weight:800; cursor:pointer; display:inline-flex; align-items:center; gap:6px; white-space:nowrap; }
+  .lang-btn:hover { background:var(--lavender-mid); }
+  .nav-right { display:flex; align-items:center; gap:.75rem; }
+  .nav-links { margin-left:auto; order:2; }
+  .nav-right { order:3; margin-left:1.5rem; }
+
+  .menu-logo { display:block; max-width:180px; height:auto; margin:0 auto 1rem; }
+  .menu-cats { display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem 2.5rem; }
+  .menu-cat { background:var(--cream); border:1px solid var(--rose-mid); border-radius:18px; padding:1.5rem 1.6rem; }
+  .menu-cat-head { display:flex; align-items:center; gap:.7rem; margin-bottom:1rem; }
+  .menu-cat-head h3 { font-family:'Playfair Display',serif; font-size:22px; font-weight:600; color:var(--rose-text); }
+  .mc-ico { width:42px; height:42px; border-radius:11px; background:var(--rose); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .mc-ico i { font-size:22px; color:var(--rose-dark); }
+  .menu-row { display:flex; align-items:baseline; gap:.5rem; padding:.4rem 0; }
+  .mr-name { font-size:15.5px; color:var(--text); font-weight:600; }
+  .mr-dots { flex:1; border-bottom:1.5px dotted var(--rose-mid); transform:translateY(-3px); }
+  .mr-price { font-size:15.5px; font-weight:800; color:var(--rose-dark); white-space:nowrap; }
+  .cat-ico { width:40px; height:40px; border-radius:11px; background:var(--rose); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .cat-ico i { font-size:21px; color:var(--rose-dark); }
+  .add-inline { display:flex; gap:.5rem; margin-top:.6rem; align-items:center; flex-wrap:wrap; }
+  .add-inline .ai-name { flex:2; min-width:140px; font-family:'Nunito'; font-size:14px; padding:.55rem .8rem; border:1.5px solid var(--rose-mid); border-radius:10px; background:var(--white); }
+  .add-inline .ai-price { width:80px; font-family:'Nunito'; font-size:14px; padding:.55rem .8rem; border:1.5px solid var(--rose-mid); border-radius:10px; background:var(--white); }
+  .footer-bottom { border-top:1px solid rgba(255,255,255,.15); padding-top:1.5rem; text-align:center; font-size:13px; color:#e8b8c8; }
+
+  .overlay { display:none; position:fixed; inset:0; background:rgba(58,23,38,.62); z-index:1000; align-items:flex-start; justify-content:center; padding:2.5rem 1.5rem; overflow-y:auto; }
+  .overlay.show { display:flex; }
+  .modal { background:var(--white); border-radius:24px; width:100%; max-width:920px; box-shadow:0 24px 70px rgba(58,23,38,.4); }
+  .modal-head { display:flex; justify-content:space-between; align-items:center; padding:1.5rem 2rem; border-bottom:1px solid var(--rose-mid); }
+  .modal-head h3 { font-family:'Playfair Display',serif; font-size:24px; color:var(--rose-text); font-weight:600; }
+  .modal-close { background:var(--cream); border:none; width:38px; height:38px; border-radius:50%; cursor:pointer; color:var(--rose-text); font-size:18px; display:flex; align-items:center; justify-content:center; }
+  .modal-close:hover { background:var(--rose); }
+  .modal-body { padding:2rem; }
+  .login-box { max-width:360px; margin:1rem auto; text-align:center; }
+  .login-box .lock-ico { width:64px; height:64px; border-radius:50%; background:var(--lavender); display:flex; align-items:center; justify-content:center; margin:0 auto 1.25rem; }
+  .login-box .lock-ico i { font-size:30px; color:var(--lavender-dark); }
+  .login-box p { color:var(--text-soft); font-size:14px; margin-bottom:1.5rem; }
+  .login-box input { width:100%; font-family:'Nunito'; font-size:15px; padding:.8rem 1rem; border:1.5px solid var(--rose-mid); border-radius:12px; margin-bottom:1rem; outline:none; }
+  .login-box input:focus { border-color:var(--rose-dark); }
+  .login-err { color:var(--rose-dark); font-size:13px; font-weight:600; margin-bottom:1rem; display:none; }
+  .login-err.show { display:block; }
+  .login-hint { font-size:12px; color:var(--text-muted); margin-top:1.25rem; }
+
+  .tabs { display:flex; gap:.25rem; margin-bottom:1.5rem; border-bottom:1px solid var(--rose-mid); flex-wrap:wrap; }
+  .tab { background:none; border:none; padding:.75rem 1.1rem; font-family:'Nunito'; font-size:15px; font-weight:700; color:var(--text-soft); cursor:pointer; border-bottom:3px solid transparent; }
+  .tab.active { color:var(--rose-dark); border-bottom-color:var(--rose-dark); }
+  .dash-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-bottom:1.5rem; }
+  .stat { background:var(--cream); border:1px solid var(--rose-mid); border-radius:16px; padding:1.1rem 1.25rem; }
+  .stat .s-label { font-size:12px; color:var(--text-muted); font-weight:700; text-transform:uppercase; }
+  .stat .s-val { font-family:'Playfair Display'; font-size:32px; font-weight:600; color:var(--rose-dark); }
+  .appt { display:grid; grid-template-columns:auto 1fr auto; gap:1rem; align-items:center; background:var(--white); border:1px solid var(--rose-mid); border-radius:14px; padding:1rem 1.25rem; margin-bottom:.75rem; }
+  .appt .a-date { text-align:center; background:var(--rose); border-radius:10px; padding:.5rem .75rem; min-width:60px; }
+  .appt .a-date .ad-day { font-family:'Playfair Display'; font-size:20px; font-weight:600; color:var(--rose-dark); line-height:1; }
+  .appt .a-date .ad-mon { font-size:11px; font-weight:700; color:var(--rose-text); text-transform:uppercase; }
+  .appt .a-name { font-size:16px; font-weight:700; color:var(--rose-text); }
+  .appt .a-meta { font-size:13px; color:var(--text-soft); }
+  .appt .a-right { text-align:right; display:flex; flex-direction:column; gap:6px; align-items:flex-end; }
+  .badge { font-size:11px; font-weight:700; padding:4px 11px; border-radius:20px; text-transform:uppercase; letter-spacing:.04em; }
+  .badge.pending { background:var(--peach); color:var(--peach-text); }
+  .badge.confirmed { background:var(--good-bg); color:var(--good); }
+  .badge.declined { background:#f0e0e0; color:#9a5a5a; }
+  .a-svc { font-size:12px; color:var(--lavender-dark); font-weight:700; }
+  .mini-btns { display:flex; gap:6px; }
+  .mini { font-size:12px; font-weight:700; padding:5px 12px; border-radius:18px; border:none; cursor:pointer; font-family:'Nunito'; }
+  .mini.ok { background:var(--good-bg); color:var(--good); }
+  .mini.no { background:#f0e0e0; color:#9a5a5a; }
+  .mini:hover { filter:brightness(.95); }
+  .dash-empty { text-align:center; padding:3rem 1rem; color:var(--text-muted); }
+  .dash-empty i { font-size:44px; opacity:.4; }
+  .demo-banner { background:var(--lavender); color:var(--lavender-text); border-radius:12px; padding:.8rem 1.1rem; font-size:13px; margin-bottom:1.5rem; display:flex; gap:8px; align-items:flex-start; }
+  .demo-banner i { font-size:18px; margin-top:1px; flex-shrink:0; }
+
+  .tech-row { display:flex; justify-content:space-between; align-items:center; background:var(--cream); border:1px solid var(--rose-mid); border-radius:14px; padding:1rem 1.25rem; margin-bottom:.75rem; }
+  .tech-row .t-name { font-weight:700; color:var(--rose-text); font-size:16px; }
+  .tech-row .t-meta { font-size:12px; color:var(--text-soft); margin-top:2px; }
+  .add-form { background:var(--cream); border:1px solid var(--rose-mid); border-radius:16px; padding:1.5rem; margin-top:1rem; }
+  .add-form h4 { font-size:16px; color:var(--rose-text); margin-bottom:1rem; }
+  .chk-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:.5rem; margin-bottom:1rem; }
+  .chk { display:flex; align-items:center; gap:7px; font-size:13px; color:var(--text-soft); cursor:pointer; background:var(--white); border:1px solid var(--rose-mid); border-radius:10px; padding:.5rem .7rem; }
+  .chk input { accent-color:var(--rose-dark); }
+  .chk.on { background:var(--rose); border-color:var(--rose-dark); color:var(--rose-text); font-weight:700; }
+  .lbl { font-size:13px; font-weight:700; color:var(--rose-text); margin-bottom:.5rem; display:block; }
+  .toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%); background:var(--rose-text); color:#fff; padding:.9rem 1.5rem; border-radius:30px; font-size:14px; font-weight:600; z-index:2000; box-shadow:0 8px 30px rgba(0,0,0,.25); display:none; }
+  .toast.show { display:block; }
+
+  .svc-edit { background:var(--cream); border:1px solid var(--rose-mid); border-radius:16px; padding:1.25rem; margin-bottom:.85rem; }
+  .svc-edit .se-head { display:flex; align-items:center; gap:10px; margin-bottom:1rem; }
+  .svc-edit .se-ico { width:40px; height:40px; border-radius:11px; background:var(--rose); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .svc-edit .se-ico i { font-size:20px; color:var(--rose-dark); }
+  .svc-edit .se-title { font-weight:700; color:var(--rose-text); font-size:15px; }
+  .svc-edit .se-row { display:grid; grid-template-columns:2fr 1fr; gap:.75rem; margin-bottom:.65rem; }
+  .svc-edit input, .svc-edit textarea, .svc-edit select { width:100%; font-family:'Nunito'; font-size:14px; padding:.55rem .8rem; border:1.5px solid var(--rose-mid); border-radius:10px; background:var(--white); color:var(--text); outline:none; }
+  .svc-edit textarea { resize:none; height:48px; }
+  .svc-edit .se-actions { display:flex; justify-content:flex-end; gap:8px; margin-top:.5rem; }
+
+  @media (max-width:900px) {
+    .hero-grid, .about-grid { grid-template-columns:1fr; }
+    .hero-visual { max-width:340px; margin:0 auto; }
+    .services-grid, .choice-grid { grid-template-columns:1fr; }
+    .menu-cats { grid-template-columns:1fr; gap:1rem; }
+    .gallery-grid { grid-template-columns:repeat(2,1fr); }
+    .hero h1 { font-size:42px; } .wrap { padding:0 1.25rem; }
+    .footer-grid, .dash-stats, .field-row, .chk-grid, .svc-edit .se-row { grid-template-columns:1fr; }
+    .slot-grid { grid-template-columns:repeat(3,1fr); }
+    .wiz { padding:1.5rem; } .modal-body { padding:1.25rem; }
+    .wiz-step span.txt { display:none; } .wiz-line { width:16px; }
+    .logo img { height:42px; }
+    .nav-inner { padding:0.9rem 1.25rem; position:relative; }
+    .nav-toggle { display:flex; }
+    .nav-links {
+      position:absolute; top:100%; left:0; right:0;
+      flex-direction:column; align-items:stretch; gap:0;
+      background:var(--cream); border-bottom:1px solid var(--rose-mid);
+      box-shadow:0 12px 24px rgba(184,74,110,.10);
+      padding:0.5rem 1.25rem 1rem; display:none;
+    }
+    nav.open .nav-links { display:flex; }
+    .nav-links li { width:100%; }
+    .nav-links a { display:block; padding:0.9rem 0.25rem; font-size:16px; border-bottom:1px solid var(--rose-mid); }
+    .nav-links li:last-child a { border-bottom:none; }
+    .nav-cta { text-align:center; margin-top:0.75rem; padding:0.85rem; }
+    .nav-owner { justify-content:center; padding:0.9rem; }
   }
 </style>
 </head>
 <body>
 
-<nav class="navbar">
-  <div class="nav-container">
-    <a href="#" class="logo" id="lnk-brand">
-      <span class="logo-top">Porter's</span>
-      <span class="logo-sub">Nails & Spa</span>
-    </a>
+<div class="promo-bar" id="promoBar" style="display:none;"><span id="promoText"></span></div>
+<nav>
+  <div class="nav-inner">
+    <a href="#home" class="logo"><img src="porters-logo.png" alt="Porter's Nails & Spa" /></a>
+    <div class="nav-right">
+      <button class="lang-btn" id="langBtn"><i class="ti ti-language"></i> <span id="langLabel">Español</span></button>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
     <ul class="nav-links">
-      <li><a href="#" id="lnk-home" class="active">Home</a></li>
-      <li><a href="#" id="lnk-services">Services</a></li>
-      <li><a href="#" id="lnk-dash">Owner Access</a></li>
-      <li><a href="#" id="lnk-book-nav" class="btn-book">Book Appointment</a></li>
+      <li><a href="#services" data-i18n="nav.services">Services</a></li>
+      <li><a href="#gallery" data-i18n="nav.gallery">Gallery</a></li>
+      <li><a href="#about" data-i18n="nav.about">About</a></li>
+      <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
+      <li><a href="#book" class="nav-cta" data-i18n="nav.book">Book now</a></li>
+      <li><a href="#" class="nav-owner" id="ownerLink"><i class="ti ti-lock"></i> <span data-i18n="nav.owner">Owner login</span></a></li>
     </ul>
   </div>
 </nav>
 
-<div id="view-home">
-  <header class="hero">
-    <h1>Your Sanctuary of Elegance & Relaxation</h1>
-    <p>Experience premier nail care, luxurious spa treatments, and professional waxing tailored to your beauty. Nestled comfortably in Porter, TX.</p>
-    <div class="hero-buttons">
-      <a href="#" id="btn-hero-book" class="btn-lg btn-primary"><i class="ti ti-calendar-event"></i> Book Online Now</a>
-      <a href="#" id="btn-hero-services" class="btn-lg btn-secondary">View Service Catalog</a>
+<header class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <span class="hero-badge"><i class="ti ti-sparkles"></i> <span data-i18n="hero.badge">Under new ownership &middot; Porter, TX</span></span>
+      <span class="open-badge" id="openBadge"></span>
+      <h1 data-i18n="hero.h1">Nails that make you feel <em>beautiful.</em></h1>
+      <p data-i18n="hero.sub">Professional nail care and spa treatments in a warm, welcoming space. Book online in seconds &mdash; choose your service, your tech, and your time.</p>
+      <div class="hero-btns">
+        <a href="#book" class="btn btn-primary"><i class="ti ti-calendar-heart"></i> <span data-i18n="hero.book">Book an appointment</span></a>
+        <a href="tel:2817477421" class="btn btn-ghost"><i class="ti ti-phone"></i> (281) 747-7421</a>
+      </div>
     </div>
-  </header>
+    <div class="hero-visual"><div class="ph"><i class="ti ti-photo"></i><p>YOUR SALON PHOTO HERE</p></div></div>
+  </div>
+</header>
 
-  <div class="info-strip">
-    <div class="info-block">
-      <div class="info-icon"><i class="ti ti-map-pin"></i></div>
-      <div class="info-text">
-        <h5>Our Location</h5>
-        <p>23611 FM 1314 Rd, Suite r
-Porter, TX 77365</p>
-      </div>
+<section class="services" id="services">
+  <div class="wrap">
+    <img src="porters-logo.png" alt="Porter's Nails & Spa" class="menu-logo" />
+    <div class="sec-head"><div class="sec-eyebrow" data-i18n="svc.eyebrow">Our menu</div><h2 data-i18n="svc.h2">Services &amp; prices</h2><p data-i18n="svc.sub">Everything we offer — tap Book to reserve your spot</p></div>
+    <div class="services-grid" id="servicesGrid"></div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <div class="sec-head"><div class="sec-eyebrow" data-i18n="gal.eyebrow">Our work</div><h2 data-i18n="gal.h2">Gallery</h2><p data-i18n="gal.sub">A peek at the looks our clients love</p></div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-text">
+      <h2 data-i18n="about.h2">A fresh start, with you in mind.</h2>
+      <p data-i18n="about.p1">Porter's Nails and Spa is under new ownership with a renewed commitment to quality, cleanliness, and genuine care for every guest who walks through our door.</p>
+      <p data-i18n="about.p2">We've created a calm, welcoming space where you can relax, unwind, and leave feeling your absolute best. Come treat yourself &mdash; you've earned it.</p>
     </div>
-    <div class="info-block">
-      <div class="info-icon"><i class="ti ti-clock"></i></div>
-      <div class="info-text">
-        <h5>Business Hours</h5>
-        <p>Mon - Sat: 9:00 AM — 7:00 PM
-Sun: 10:30 AM — 5:00 PM</p>
-      </div>
-    </div>
-    <div class="info-block">
-      <div class="info-icon"><i class="ti ti-phone"></i></div>
-      <div class="info-text">
-        <h5>Get In Touch</h5>
-        <p>Phone: (281) 577-9499
-Walk-ins Welcome!</p>
-      </div>
+    <div class="info-stack">
+      <div class="info-card"><div class="ic-ico"><i class="ti ti-map-pin"></i></div><div><strong data-i18n="about.visit">Visit us</strong><span id="aboutAddr">23830 FM1314 Suite C, Porter, TX 77365</span></div></div>
+      <div class="info-card"><div class="ic-ico"><i class="ti ti-clock"></i></div><div><strong data-i18n="about.hours">Hours</strong><span id="aboutHours">Mon&ndash;Fri 9&ndash;7 &middot; Sat 9&ndash;6 &middot; Sun 10&ndash;5</span></div></div>
+      <div class="info-card"><div class="ic-ico"><i class="ti ti-credit-card"></i></div><div><strong data-i18n="about.pay">Payment</strong><span data-i18n="about.payval">Cash &amp; all major credit cards accepted</span></div></div>
     </div>
   </div>
+</section>
 
-  <section class="gallery-section">
-    <h2 class="section-title">Impeccable Craftsmanship</h2>
-    <p class="section-subtitle">A glimpse of our latest salon work</p>
-    <div class="gallery-grid">
-      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1604654894610-df490651e194?auto=format&fit=crop&w=400&q=80" alt="Nail Art"></div>
-      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1632345031435-8797b2d58045?auto=format&fit=crop&w=400&q=80" alt="Manicure Treatment"></div>
-      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=400&q=80" alt="Pedicure Relaxation"></div>
-      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1607779097040-26e80aa78e66?auto=format&fit=crop&w=400&q=80" alt="Luxury Acrylics"></div>
-    </div>
-  </section>
-
-  <section class="reviews-section">
-    <h2 class="section-title">Client Love</h2>
-    <p class="section-subtitle">What our wonderful guests are saying</p>
-    <div class="reviews-grid">
-      <div class="review-card">
-        <div class="stars"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div>
-        <p>"Clean, elegant, and the staff is incredibly meticulous! My shellac manicures consistently last over three full weeks without a single chip."</p>
-        <div class="review-author">Amanda R. — Porter, TX</div>
-      </div>
-      <div class="review-card">
-        <div class="stars"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div>
-        <p>"The Golden Spa Pedicure is an absolute dream experience. Worth every single penny. This is officially my permanent self-care spot."</p>
-        <div class="review-author">Jessica M. — Kingwood, TX</div>
-      </div>
-      <div class="review-card">
-        <div class="stars"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div>
-        <p>"They are fantastic with kids! Brought my daughter in for an 11-and-under package and they treated her exactly like a tiny queen."</p>
-        <div class="review-author">Sarah L. — New Caney, TX</div>
-      </div>
-    </div>
-  </section>
-</div>
-
-<div id="view-services" style="display:none;">
-  <h2 class="section-title" style="margin-top:40px;">Our Menu & Pricing</h2>
-  <p class="section-subtitle">Indulge in our professional services</p>
-  <div class="services-layout">
-    <div class="cat-menu" id="menu-cat-list"></div>
-    <div class="items-panel">
-      <div class="items-grid" id="menu-items-grid"></div>
+<section class="booking" id="book">
+  <div class="wrap">
+    <div class="sec-head"><div class="sec-eyebrow" data-i18n="book.eyebrow">Reserve your spot</div><h2 data-i18n="book.h2">Book an appointment</h2><p data-i18n="book.sub">Pick your service, your nail tech, and your time</p></div>
+    <div class="wiz">
+      <div class="wiz-steps" id="wizSteps"></div>
+      <div id="wizBody"></div>
     </div>
   </div>
-</div>
+</section>
 
-<div id="view-book" style="display:none;" class="booking-section">
-  <div class="booking-card">
-    <div class="wiz-header">
-      <h3 id="wiz-title">Book Appointment</h3>
-      <span class="wiz-steps-indicator" id="wiz-step-ind">Step 1 of 6</span>
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="sec-head"><div class="sec-eyebrow" data-i18n="faq.eyebrow">Good to know</div><h2 data-i18n="faq.h2">Questions &amp; answers</h2><p data-i18n="faq.sub">A few things our guests often ask</p></div>
+    <div class="faq-list">
+      <div class="faq-item"><h3><i class="ti ti-calendar"></i><span data-i18n="faq.q1">Do I need an appointment, or can I walk in?</span></h3><p data-i18n="faq.a1">Both are welcome! Walk-ins are always accepted when we have an opening, but booking ahead guarantees your spot and your favorite nail tech.</p></div>
+      <div class="faq-item"><h3><i class="ti ti-credit-card"></i><span data-i18n="faq.q2">What forms of payment do you accept?</span></h3><p data-i18n="faq.a2">We accept cash and all major credit cards.</p></div>
+      <div class="faq-item"><h3><i class="ti ti-car"></i><span data-i18n="faq.q3">Where do I park?</span></h3><p data-i18n="faq.a3">There's free parking right in front of the salon — we're located next to O'Reilly Auto Parts on FM1314.</p></div>
+      <div class="faq-item"><h3><i class="ti ti-clock"></i><span data-i18n="faq.q4">How early should I arrive?</span></h3><p data-i18n="faq.a4">Arriving about 5 minutes early helps us start your appointment on time. If you're running late, give us a quick call.</p></div>
+      <div class="faq-item"><h3><i class="ti ti-phone"></i><span data-i18n="faq.q5">How can I reach you?</span></h3><p data-i18n="faq.a5">The easiest way is to call us at (281) 747-7421. We're happy to answer any questions or help you book.</p></div>
     </div>
-    <div class="wiz-body">
-      
-      <div class="wiz-step active" id="step-1">
-        <h4 style="margin-bottom:15px; font-weight:600;">Select Service Category</h4>
-        <div class="wiz-grid-cats" id="wiz-cats-root"></div>
-      </div>
+  </div>
+</section>
 
-      <div class="wiz-step" id="step-2">
-        <h4 style="margin-bottom:15px; font-weight:600;">Select Specific Treatment</h4>
-        <div id="wiz-items-root"></div>
-      </div>
-
-      <div class="wiz-step" id="step-3">
-        <h4 style="margin-bottom:15px; font-weight:600;">Choose Preferred Technician</h4>
-        <div class="wiz-tech-grid" id="wiz-techs-root"></div>
-      </div>
-
-      <div class="wiz-step" id="step-4">
-        <h4 style="margin-bottom:15px; font-weight:600;">Choose Date & Available Time</h4>
-        <div class="wiz-datetime-container">
-          <div class="wiz-date-picker">
-            <label>Select Date
-              <input type="date" id="wiz-date-input" />
-            </label>
-          </div>
-          <div>
-            <label style="font-size:14px; font-weight:600; color:var(--text-muted); display:block; margin-bottom:8px;">Available Slots</label>
-            <div class="wiz-time-slots" id="wiz-time-root"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="wiz-step" id="step-5">
-        <h4 style="margin-bottom:15px; font-weight:600;">Your Contact Details</h4>
-        <div class="wiz-form">
-          <label>Your Full Name
-            <input type="text" id="wiz-cust-name" placeholder="First and last name" />
-          </label>
-          <label>Phone Number
-            <input type="tel" id="wiz-cust-phone" placeholder="(555) 000-0000" />
-          </label>
-          <label>Email Address (Optional)
-            <input type="email" id="wiz-cust-email" placeholder="you@example.com" />
-          </label>
-        </div>
-      </div>
-
-      <div class="wiz-step" id="step-6">
-        <h4 style="margin-bottom:15px; font-weight:600;">Verify Details & Confirm</h4>
-        <div class="wiz-summary-box" id="wiz-summary-root"></div>
-        <p style="font-size:13px; color:var(--text-muted); text-align:center;">By clicking confirm, your appointment will be reserved. Payment is processed inside the salon after your visit.</p>
-      </div>
-
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div><div class="footer-logo">Porter's Nails &amp; Spa</div><p data-i18n="footer.tag">Your neighborhood nail salon in Porter, Texas. Quality care, a warm welcome, and a little luxury every visit.</p></div>
+      <div class="footer-col"><h4 data-i18n="footer.visit">Visit</h4><a class="map-link" id="mapLink" href="https://www.google.com/maps/search/?api=1&amp;query=23830%20FM1314%20Suite%20C%2C%20Porter%2C%20TX%2077365" target="_blank" rel="noopener"><i class="ti ti-map-pin"></i> <span id="footAddr">23830 FM1314 Suite C, Porter, TX 77365</span></a><a href="tel:2817477421" id="footPhone">(281) 747-7421</a></div>
+      <div class="footer-col"><h4 data-i18n="footer.hours">Hours</h4><p id="footHours">Mon&ndash;Fri: 9 AM &ndash; 7 PM<br>Sat: 9 AM &ndash; 6 PM<br>Sun: 10 AM &ndash; 5 PM</p></div>
     </div>
-    <div class="wiz-footer">
-      <button class="btn-wiz-prev" id="btn-wiz-prev" style="visibility:hidden;"><i class="ti ti-arrow-left"></i> Back</button>
-      <button class="btn-wiz-next" id="btn-wiz-next">Continue</button>
+    <div class="footer-bottom">&copy; 2026 Porter's Nails and Spa &middot; All rights reserved</div>
+  </div>
+</footer>
+
+<div class="overlay" id="ownerOverlay">
+  <div class="modal">
+    <div class="modal-head"><h3 id="modalTitle">Owner login</h3><button class="modal-close" id="modalClose"><i class="ti ti-x"></i></button></div>
+    <div class="modal-body">
+      <div class="login-box" id="loginView">
+        <div class="lock-ico"><i class="ti ti-lock"></i></div>
+        <p>Enter your password to manage appointments, techs, and services.</p>
+        <input type="password" id="ownerPass" placeholder="Password" />
+        <div class="login-err" id="loginErr">Incorrect password. Please try again.</div>
+        <button class="btn btn-primary" id="loginBtn" style="width:100%; justify-content:center;"><i class="ti ti-login"></i> Log in</button>
+        <div class="login-hint">Demo password: <strong>porters2026</strong></div>
+      </div>
+      <div id="dashView" style="display:none;"></div>
     </div>
   </div>
 </div>
 
-<div id="view-dash-auth" style="display:none;">
-  <div class="dash-login">
-    <h3 style="margin-bottom:20px; text-align:center; color:var(--rose-text);">Owner Administration</h3>
-    <label style="display:block; margin-bottom:15px; font-size:14px; font-weight:600;">Enter Management Security Password
-      <input type="password" id="dash-pass-input" style="width:100%; padding:12px; border-radius:8px; border:1px solid var(--rose-mid); margin-top:6px; font-family:inherit;" />
-    </label>
-    <button class="btn-lg btn-primary" id="btn-dash-auth" style="width:100%; justify-content:center;">Access Dashboard</button>
-  </div>
-</div>
-
-<div id="view-dash-panel" class="dash-container">
-  <div style="display:flex; justify-content:between; align-items:center; margin-bottom:30px; background:var(--white); padding:20px; border-radius:var(--radius); box-shadow:var(--shadow);">
-    <div>
-      <h2 style="color:var(--rose-text);">Porter's Salon Dashboard</h2>
-      <p style="font-size:14px; color:var(--text-muted);">Real-time scheduling data and asset manager</p>
-    </div>
-    <button class="btn-secondary" id="btn-dash-logout" style="padding:8px 16px; border-radius:6px; cursor:pointer;">Log Out</button>
-  </div>
-
-  <div class="dash-tabs">
-    <button class="dash-tab active" data-tab="tab-appointments">Appointments</button>
-    <button class="dash-tab" data-tab="tab-services">Services & Prices</button>
-  </div>
-
-  <div class="dash-pane active" id="tab-appointments">
-    <div class="dash-actions-row">
-      <h3 style="font-weight:600;">Booked Calendar Sessions</h3>
-      <button class="btn-sm" id="btn-clear-stale" style="background:#706668; color:white; padding:8px 14px; border-radius:6px;">Clear Past / Finished Bookings</button>
-    </div>
-    <div style="overflow-x:auto;">
-      <table class="table-res">
-        <thead>
-          <tr>
-            <th>Date & Time</th>
-            <th>Client Context</th>
-            <th>Requested Service</th>
-            <th>Assigned Artist</th>
-            <th>Estimate</th>
-            <th>Status</th>
-            <th>Control Actions</th>
-          </tr>
-        </thead>
-        <tbody id="dash-appts-tbody"></tbody>
-      </table>
-    </div>
-  </div>
-
-  <div class="dash-pane" id="tab-services">
-    <div class="dash-actions-row">
-      <h3 style="font-weight:600;">Manage Active Service Offerings</h3>
-      <p style="font-size:13px; color:var(--text-muted);">Edits made below update the live customer catalog automatically.</p>
-    </div>
-    <div id="dash-services-root"></div>
-  </div>
-</div>
-
-<div class="toast" id="toast">Saved Successfully</div>
+<div class="toast" id="toast"></div>
 
 <script>
-// --- CRITICAL DATA KEYS & MAPPINGS FIX ---
-// The old structure saved capital-letter categories in the browser storage, completely breaking 
-// the booking filter. This forced check overwrites old invalid browser memory one time automatically.
-if (localStorage.getItem('porters_catalog') && localStorage.getItem('porters_catalog').includes('"id":"Manicure"')) {
-  localStorage.removeItem('porters_catalog'); 
-}
-
-function load(k, df){ var v=localStorage.getItem(k); return v?JSON.parse(v):df; }
-function save(k, v){ localStorage.setItem(k, JSON.stringify(v)); }
-
-// --- FIXED CATALOG ARRAY KEYS ---
-// Aligned all category IDs perfectly with technician lookup arrays to avoid booking page lockups.
-var CATALOG = load('porters_catalog', null);
-if(!CATALOG){
-  CATALOG = [
-    { id:'manicure', cat:'Manicure', icon:'ti-hand-finger', items:[
-      { id:'m1', name:'Classic Manicure', price:20 },
-      { id:'m2', name:'Shellac Manicure', price:32 },
-      { id:'m3', name:'French Shellac Manicure', price:38 }
-    ]},
-    { id:'pedicure', cat:'Pedicure', icon:'ti-flower', items:[
-      { id:'p1', name:'Regular Spa Pedicure', price:25 },
-      { id:'p2', name:'Classic Spa Pedicure', price:30 },
-      { id:'p3', name:'Deluxe Spa Pedicure', price:45 },
-      { id:'p4', name:'Golden Spa Pedicure', price:45 },
-      { id:'p5', name:'Pearl Spa Pedicure', price:55 }
-    ]},
-    { id:'enhance', cat:'Nail Enhancement', icon:'ti-diamond', items:[
-      { id:'e1', name:'Solar Full Set', price:45 },
-      { id:'e2', name:'Solar Fill-ins', price:45 },
-      { id:'e3', name:'Powder Color Full Set', price:50 },
-      { id:'e4', name:'Powder Color Fill-ins', price:45 },
-      { id:'e5', name:'Powder w/ White & Pearl Tips', price:40 },
-      { id:'e6', name:'Powder w/ Shellac', price:50 },
-      { id:'e7', name:'Refill w/ Shellac', price:45 },
-      { id:'e8', name:'Dipping Powder Full Set', price:45 },
-      { id:'e9', name:'Pink & White Full Set', price:50 },
-      { id:'e10', name:'Pink & White Fill-ins', price:45 },
-      { id:'e11', name:'Pink Fill', price:40 }
-    ]},
-    { id:'addons', cat:'Add-ons & Polish', icon:'ti-droplet', items:[
-      { id:'a1', name:'Polish Change \u2014 Hands', price:10 },
-      { id:'a2', name:'Polish Change \u2014 Hands (French)', price:12 },
-      { id:'a3', name:'Polish Change \u2014 Toes', price:10 },
-      { id:'a4', name:'Polish Change \u2014 Toes (French)', price:15 },
-      { id:'a5', name:'Soak Off', price:10 },
-      { id:'a6', name:'Cut Down', price:5 },
-      { id:'a7', name:'Cut Down & File', price:10 },
-      { id:'a8', name:'French', price:6 },
-      { id:'a9', name:'Paraffin Wax', price:6 },
-      { id:'a10', name:'Nail Design', price:5, plus:true },
-      { id:'a11', name:'Nail Repair', price:5 },
-      { id:'a12', name:'Shellac Polish Change \u2014 Feet', price:25 },
-      { id:'a13', name:'Shellac Polish Change \u2014 Hands', price:25 }
-    ]},
-    { id:'kids', cat:'Kids (11 & under)', icon:'ti-mood-kid', items:[
-      { id:'k1', name:'Spa Pedicure & Manicure', price:30 },
-      { id:'k2', name:'Pedicure', price:20 },
-      { id:'k3', name:'Manicure', price:12 },
-      { id:'k4', name:'Polish Change \u2014 Feet', price:7 },
-      { id:'k5', name:'Polish Change \u2014 Hands', price:6 }
-    ]},
-    { id:'waxing', cat:'Waxing', icon:'ti-wand', items:[
-      { id:'w1', name:'Full Face', price:30 },
-      { id:'w2', name:'Eyebrows', price:10 },
-      { id:'w3', name:'Lips & Chin', price:20 },
-      { id:'w4', name:'Chin', price:15 },
-      { id:'w5', name:'Full Arms', price:30, plus:true },
-      { id:'w6', name:'Underarms', price:20 },
-      { id(--w7, name:'Bikini', price:30, plus:true },
-      { id:'w8', name:'Full Legs', price:60 },
-      { id:'w9', name:'Half Legs', price:30 },
-      { id:'w10', name:'Full Back', price:50 }
-    ]}
-  ];
-  save('porters_catalog', CATALOG);
-}
-
-var techs = [
-  { id:'t1', name:'Lisa', cats:['manicure','pedicure','addons','kids','waxing'], initial:'L' },
-  { id:'t2', name:'Maria', cats:['enhance','manicure','pedicure','addons','waxing'], initial:'M' },
-  { id:'t3', name:'Any Technician', cats:['manicure','pedicure','enhance','addons','kids','waxing'], initial:'*' }
-];
-
-var APPOINTMENTS = load('porters_appts', []);
-var OWNER_PASSWORD = "porters2026";
-var current_cat_idx = 0;
-
-var wiz = { step:1, cat:null, item:null, tech:null, date:'', time:'', name:'', phone:'', email:'' };
-
-var views = ['view-home','view-services','view-book','view-dash-auth','view-dash-panel'];
-function showView(id){
-  views.forEach(function(v){ document.getElementById(v).style.display = (v===id)?'block':'none'; });
-  var links = ['lnk-home','lnk-services','lnk-dash'];
-  links.forEach(function(l){ document.getElementById(l).classList.remove('active'); });
-  if(id==='view-home') document.getElementById('lnk-home').classList.add('active');
-  if(id==='view-services') document.getElementById('lnk-services').classList.add('active');
-  if(id==='view-dash-auth'||id==='view-dash-panel') document.getElementById('lnk-dash').classList.add('active');
-  window.scrollTo(0,0);
-}
-
-function showToast(m){
-  var t = document.getElementById('toast'); t.innerText = m; t.classList.add('show');
-  setTimeout(function(){ t.classList.remove('show'); }, 3000);
-}
-
-function catById(id){ return CATALOG.filter(function(c){return c.id===id;})[0]; }
-function itemById(cid, iid){
-  var c = catById(cid); if(!c) return null;
-  return c.items.filter(function(i){return i.id===iid;})[0];
-}
-function techById(id){ return techs.filter(function(t){return t.id===id;})[0]; }
-
-function renderPublicServices(){
-  var menuRoot = document.getElementById('menu-cat-list');
-  var itemsRoot = document.getElementById('menu-items-grid');
-  if(!menuRoot || !itemsRoot) return;
-  menuRoot.innerHTML = ''; itemsRoot.innerHTML = '';
-  
-  CATALOG.forEach(function(c, idx){
-    var btn = document.createElement('button');
-    btn.className = 'cat-btn' + (idx===current_cat_idx?' active':'');
-    btn.innerHTML = '<i class="'+c.icon+'"></i> ' + c.cat;
-    btn.onclick = function(){ current_cat_idx=idx; renderPublicServices(); };
-    menuRoot.appendChild(btn);
-  });
-  
-  var activeCat = CATALOG[current_cat_idx];
-  if(activeCat) {
-    activeCat.items.forEach(function(it){
-      var row = document.createElement('div');
-      row.className = 'menu-item';
-      var badge = it.plus?'<span class="badge-plus">and up</span>':'';
-      row.innerHTML = '<div class="item-details"><h4>'+it.name+badge+'</h4><p>Professional salon care setup</p></div>' +
-                      '<div class="item-price"><span>$'+it.price+'</span><button class="btn-add-wiz" data-cid="'+activeCat.id+'" data-iid="'+it.id+'"><i class="ti ti-plus"></i></button></div>';
-      itemsRoot.appendChild(row);
-    });
-  }
-  
-  Array.prototype.forEach.call(itemsRoot.querySelectorAll('.btn-add-wiz'), function(b){
-    b.onclick = function(){
-      initWizard(b.dataset.cid, b.dataset.iid);
-    };
-  });
-}
-
-function initWizard(presetCid, presetIid){
-  wiz = { step:1, cat:null, item:null, tech:null, date:'', time:'', name:'', phone:'', email:'' };
-  document.getElementById('wiz-date-input').value = '';
-  document.getElementById('wiz-cust-name').value = '';
-  document.getElementById('wiz-cust-phone').value = '';
-  document.getElementById('wiz-cust-email').value = '';
-  
-  if(presetCid && presetIid){
-    wiz.cat = presetCid;
-    wiz.item = presetIid;
-    wiz.step = 3;
-  }
-  showView('view-book');
-  renderWiz();
-}
-
-function renderWiz(){
-  document.getElementById('wiz-step-ind').innerText = "Step " + wiz.step + " of 6";
-  for(var s=1; s<=6; s++){
-    var el = document.getElementById('step-'+s);
-    if(el) el.className = (s===wiz.step)?'wiz-step active':'wiz-step';
-  }
-  document.getElementById('btn-wiz-prev').style.visibility = (wiz.step===1)?'hidden':'visible';
-  document.getElementById('btn-wiz-next').innerText = (wiz.step===6)?'Confirm Appointment':'Continue';
-  
-  if(wiz.step===1) {
-    var root = document.getElementById('wiz-cats-root'); root.innerHTML = '';
-    CATALOG.forEach(function(c){
-      var d = document.createElement('div');
-      d.className = 'wiz-cat-card' + (wiz.cat===c.id?' wiz-selected':'');
-      d.innerHTML = '<i class="'+c.icon+'"></i><span>'+c.cat+'</span>';
-      d.onclick = function(){ wiz.cat = c.id; wiz.item = null; wiz.step = 2; renderWiz(); };
-      root.appendChild(d);
-    });
-  }
-  
-  if(wiz.step===2) {
-    var root = document.getElementById('wiz-items-root'); root.innerHTML = '';
-    var c = catById(wiz.cat);
-    if(c){
-      c.items.forEach(function(it){
-        var d = document.createElement('div');
-        d.className = 'wiz-item-row' + (wiz.item===it.id?' wiz-selected':'');
-        var b = it.plus?' +':'';
-        d.innerHTML = '<span class="wiz-item-name">'+it.name+'</span><span class="wiz-item-price">$'+it.price+b+'</span>';
-        d.onclick = function(){ wiz.item = it.id; wiz.step = 3; renderWiz(); };
-        root.appendChild(d);
+  // --- mobile nav toggle ---
+  (function(){
+    var nav=document.querySelector('nav'); var tog=document.getElementById('navToggle');
+    if(tog){
+      tog.addEventListener('click', function(){
+        var open=nav.classList.toggle('open');
+        tog.setAttribute('aria-expanded', open?'true':'false');
+      });
+      nav.querySelectorAll('.nav-links a').forEach(function(a){
+        a.addEventListener('click', function(){ nav.classList.remove('open'); tog.setAttribute('aria-expanded','false'); });
       });
     }
-  }
-  
-  if(wiz.step===3) {
-    var root = document.getElementById('wiz-techs-root'); root.innerHTML = '';
-    var avail = techs.filter(function(t){ return t.cats.indexOf(wiz.cat)>-1; });
-    if(avail.length===0) {
-      root.innerHTML = '<p style="grid-column:span 2; text-align:center; color:var(--text-muted);">No assigned artists found for this profile category.</p>';
-    } else {
-      avail.forEach(function(t){
-        var d = document.createElement('div');
-        d.className = 'wiz-tech-card' + (wiz.tech===t.id?' wiz-selected':'');
-        d.innerHTML = '<div class="wiz-tech-avatar">'+t.initial+'</div><div class="wiz-tech-name">'+t.name+'</div>';
-        d.onclick = function(){ wiz.tech = t.id; wiz.step = 4; renderWiz(); };
-        root.appendChild(d);
-      });
+  })();
+
+  var I18N = {
+    es: {
+      'nav.services':'Servicios','nav.gallery':'Galería','nav.about':'Nosotros','nav.faq':'Preguntas','nav.book':'Reservar','nav.owner':'Acceso dueños',
+      'hero.badge':'Bajo nueva administración &middot; Porter, TX',
+      'hero.h1':'Uñas que te hacen sentir <em>hermosa.</em>',
+      'hero.sub':'Cuidado profesional de uñas y tratamientos de spa en un espacio cálido y acogedor. Reserva en línea en segundos.',
+      'hero.book':'Reservar una cita',
+      'svc.eyebrow':'Lo que ofrecemos','svc.h2':'Nuestros servicios','svc.sub':'Consiéntete con nuestros tratamientos favoritos',
+      'gal.eyebrow':'Nuestro trabajo','gal.h2':'Galería','gal.sub':'Un vistazo a los estilos que aman nuestras clientas',
+      'about.h2':'Un nuevo comienzo, pensando en ti.',
+      'about.p1':'Porter\u2019s Nails and Spa está bajo nueva administración, con un compromiso renovado con la calidad, la limpieza y el cuidado genuino de cada clienta.',
+      'about.p2':'Hemos creado un espacio tranquilo y acogedor donde puedes relajarte y salir sintiéndote de maravilla. Ven a consentirte: te lo mereces.',
+      'about.visit':'Visítanos','about.hours':'Horario','about.pay':'Pago','about.payval':'Efectivo y todas las tarjetas principales',
+      'book.eyebrow':'Aparta tu lugar','book.h2':'Reservar una cita','book.sub':'Elige tu servicio, tu manicurista y tu horario',
+      'faq.eyebrow':'Bueno saber','faq.h2':'Preguntas frecuentes','faq.sub':'Algunas cosas que nos preguntan a menudo',
+      'faq.q1':'¿Necesito cita o puedo llegar sin reservar?','faq.a1':'¡Ambas opciones son bienvenidas! Aceptamos clientas sin cita cuando hay espacio, pero reservar asegura tu lugar y tu manicurista favorita.',
+      'faq.q2':'¿Qué formas de pago aceptan?','faq.a2':'Aceptamos efectivo y todas las tarjetas de crédito principales.',
+      'faq.q3':'¿Dónde me estaciono?','faq.a3':'Hay estacionamiento gratuito justo enfrente del salón, junto a O\u2019Reilly Auto Parts en FM1314.',
+      'faq.q4':'¿Con cuánta anticipación debo llegar?','faq.a4':'Llegar unos 5 minutos antes nos ayuda a comenzar a tiempo. Si vas con retraso, llámanos.',
+      'faq.q5':'¿Cómo puedo contactarlos?','faq.a5':'Lo más fácil es llamarnos al (281) 747-7421. Con gusto respondemos tus preguntas o te ayudamos a reservar.',
+      'footer.tag':'Tu salón de uñas de confianza en Porter, Texas. Cuidado de calidad, una cálida bienvenida y un toque de lujo en cada visita.',
+      'footer.visit':'Visítanos','footer.hours':'Horario',
+      'open.now':'Abierto ahora','open.closed':'Cerrado ahora'
     }
-  }
-  
-  if(wiz.step===4) {
-    renderTimeSlots();
-  }
-  
-  if(wiz.step===6) {
-    var root = document.getElementById('wiz-summary-root');
-    var c = catById(wiz.cat); var it = itemById(wiz.cat, wiz.item); var t = techById(wiz.tech);
-    var bp = it?(it.price + (it.plus?' up':'')):'0';
-    root.innerHTML = '<div class="sum-row"><span class="sum-label">Service Category</span><span class="sum-val">'+(c?c.cat:'')+'</span></div>' +
-                     '<div class="sum-row"><span class="sum-label">Treatment Option</span><span class="sum-val">'+(it?it.name:'')+'</span></div>' +
-                     '<div class="sum-row"><span class="sum-label">Nail Specialist</span><span class="sum-val">'+(t?t.name:'')+'</span></div>' +
-                     '<div class="sum-row"><span class="sum-label">Date & Session</span><span class="sum-val">'+wiz.date+' @ '+wiz.time+'</span></div>' +
-                     '<div class="sum-row"><span class="sum-label">Client Name</span><span class="sum-val">'+wiz.name+'</span></div>' +
-                     '<div class="sum-row"><span class="sum-label">Phone Reference</span><span class="sum-val">'+wiz.phone+'</span></div>' +
-                     '<div class="sum-row" style="border:none; font-weight:700;"><span class="sum-label" style="color:var(--text-dark);">Estimated Due</span><span class="sum-val sum-total">$'+bp+'</span></div>';
-  }
-}
+  };
 
-function renderTimeSlots(){
-  var root = document.getElementById('wiz-time-root'); root.innerHTML = '';
-  if(!wiz.date) { root.innerHTML = '<p style="grid-column:span 2; text-align:center; color:var(--text-muted); padding-top:20px;">Please pick a target day first.</p>'; return; }
+  var DOW = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+  var OWNER_PASSWORD = "porters2026";
+  var ICON_CHOICES = ["ti-droplet","ti-sparkles","ti-diamond","ti-flower","ti-palette","ti-wand","ti-heart","ti-star","ti-brush","ti-massage","ti-hand-finger","ti-rosette"];
+  var mem = {};
   
-  var slots = ["09:00 AM","09:45 AM","10:30 AM","11:15 AM","12:00 PM","01:00 PM","01:45 PM","02:30 PM","03:15 PM","04:00 PM","04:45 PM","05:30 PM","06:15 PM"];
+  var DB = {
+    get: function(k){ try { return localStorage.getItem(k); } catch(e){ return (k in mem)?mem[k]:null; } },
+    set: function(k,v){ try { localStorage.setItem(k,v); } catch(e){ mem[k]=v; } }
+  };
   
-  var booked = APPOINTMENTS.filter(function(a){ return a.date===wiz.date && a.tech===wiz.tech && a.status!=='cancelled'; }).map(function(a){return a.time;});
-  
-  slots.forEach(function(sl){
-    var isBooked = booked.indexOf(sl) > -1;
-    var d = document.createElement('div');
-    d.className = 'time-slot' + (isBooked?' disabled':'') + (wiz.time===sl?' wiz-selected':'');
-    d.innerText = sl;
-    if(!isBooked) {
-      d.onclick = function(){ wiz.time = sl; renderWiz(); };
-    }
-    root.appendChild(d);
-  });
-}
-
-function handleWizNext(){
-  if(wiz.step===1 && !wiz.cat) { showToast('Please select an administrative service class'); return; }
-  if(wiz.step===2 && !wiz.item) { showToast('Select a unique treatment operation'); return; }
-  if(wiz.step===3 && !wiz.tech) { showToast('Assign a preferred staff artist'); return; }
-  if(wiz.step===4) {
-    if(!wiz.date || !wiz.time) { showToast('Complete session day and calendar block slot selection'); return; }
+  // --- SELF HEALING MEMORY FUNCTION --- 
+  // Wraps JSON.parse in a try-catch so corrupted memory doesn't crash the script
+  function load(k,d){ 
+    var v=DB.get(k); 
+    if(!v) return d;
+    try { 
+      return JSON.parse(v); 
+    } catch(e) { 
+      console.error("Fixed corrupted memory for:", k); 
+      DB.set(k, JSON.stringify(d)); 
+      return d; 
+    } 
   }
-  if(wiz.step===5) {
-    var nm = document.getElementById('wiz-cust-name').value.trim();
-    var ph = document.getElementById('wiz-cust-phone').value.trim();
-    var em = document.getElementById('wiz-cust-email').value.trim();
-    if(!nm || !ph) { showToast('Name and primary phone values are required'); return; }
-    wiz.name = nm; wiz.phone = ph; wiz.email = em;
-  }
-  
-  if(wiz.step===6) {
-    var newAppt = {
-      id: 'apt_' + Date.now(),
-      cat: wiz.cat, item: wiz.item, tech: wiz.tech,
-      date: wiz.date, time: wiz.time,
-      name: wiz.name, phone: wiz.phone, email: wiz.email,
-      status: 'pending'
-    };
-    APPOINTMENTS.push(newAppt);
-    save('porters_appts', APPOINTMENTS);
-    showToast('Your reservation request has been secured!');
-    showView('view-home');
-    return;
-  }
-  
-  wiz.step++; renderWiz();
-}
+  function save(k,v){ DB.set(k,JSON.stringify(v)); }
 
-function handleWizPrev(){ if(wiz.step>1){ wiz.step--; renderWiz(); } }
-
-function renderDash(){
-  var tbody = document.getElementById('dash-appts-tbody'); if(!tbody) return;
-  tbody.innerHTML = '';
-  
-  var sorted = APPOINTMENTS.slice().sort(function(a,b){ return (a.date+a.time).localeCompare(b.date+b.time); });
-  
-  if(sorted.length===0){
-    tbody.innerHTML = '<tr><td colspan="7" style="text-align:center; color:var(--text-muted);">No reservation files matched or found on device storage.</td></tr>';
-  } else {
-    sorted.forEach(function(a){
-      var tr = document.createElement('tr');
-      var c = catById(a.cat); var it = itemById(a.cat, a.item); var t = techById(a.tech);
-      var cname = c?c.cat:a.cat; var iname = it?it.name:a.item; var tname = t?t.name:a.tech;
-      var pr = it?'$'+it.price:'--';
-      
-      var act = '';
-      if(a.status==='pending'){
-        act = '<button class="btn-sm btn-sm-conf" data-cid="'+a.id+'">Approve</button>' +
-              '<button class="btn-sm btn-sm-canc" data-cid="'+a.id+'">Cancel</button>';
-      } else if(a.status==='confirmed'){
-        act = '<button class="btn-sm btn-sm-canc" data-cid="'+a.id+'">Cancel Appointment</button>';
-      } else {
-        act = '<span style="color:var(--text-muted); font-size:12px;">Archived</span>';
+  var curLang = load('porters_lang','en');
+  function applyLang(lang){
+    curLang=lang; save('porters_lang',lang);
+    document.documentElement.lang = lang;
+    var dict = I18N[lang];
+    Array.prototype.forEach.call(document.querySelectorAll('[data-i18n]'), function(el){
+      var key=el.getAttribute('data-i18n');
+      if(lang==='en'){ if(el.getAttribute('data-en')!=null) el.innerHTML=el.getAttribute('data-en'); }
+      else if(dict && dict[key]!=null){
+        if(el.getAttribute('data-en')==null) el.setAttribute('data-en', el.innerHTML); // stash original
+        el.innerHTML = dict[key];
       }
-      
-      tr.innerHTML = '<td><strong>'+a.date+'</strong><br/>'+a.time+'</td>' +
-                     '<td><strong>'+a.name+'</strong><br/>'+a.phone+'</td>' +
-                     '<td><span style="font-size:12px; color:var(--rose-dark);">'+cname+'</span><br/>'+iname+'</td>' +
-                     '<td>'+tname+'</td>' +
-                     '<td>'+pr+'</td>' +
-                     '<td><span class="status-badge status-'+a.status+'">'+a.status+'</span></td>' +
-                     '<td>'+act+'</td>';
-      tbody.appendChild(tr);
     });
+    var lbl=document.getElementById('langLabel'); if(lbl) lbl.textContent = (lang==='en'?'Español':'English');
+    if(typeof renderOpenBadge==='function') renderOpenBadge();
   }
-  
-  Array.prototype.forEach.call(tbody.querySelectorAll('.btn-sm-conf'), function(b){
-    b.onclick = function(){ updateApptStatus(b.dataset.cid, 'confirmed'); };
+  Array.prototype.forEach.call(document.querySelectorAll('[data-i18n]'), function(el){ el.setAttribute('data-en', el.innerHTML); });
+  (function(){
+    var b=document.getElementById('langBtn'); if(!b) return;
+    b.addEventListener('click', function(){ applyLang(curLang==='en'?'es':'en'); });
+  })();
+
+  var CATALOG = load('porters_catalog', null);
+  if(!CATALOG){
+    CATALOG = [
+      { id:'manicure', cat:'Manicure', icon:'ti-hand-finger', items:[
+        { id:'m1', name:'Classic Manicure', price:20 },
+        { id:'m2', name:'Shellac Manicure', price:32 },
+        { id:'m3', name:'French Shellac Manicure', price:38 }
+      ]},
+      { id:'pedicure', cat:'Pedicure', icon:'ti-flower', items:[
+        { id:'p1', name:'Regular Spa Pedicure', price:25 },
+        { id:'p2', name:'Classic Spa Pedicure', price:30 },
+        { id:'p3', name:'Deluxe Spa Pedicure', price:45 },
+        { id:'p4', name:'Golden Spa Pedicure', price:45 },
+        { id:'p5', name:'Pearl Spa Pedicure', price:55 }
+      ]},
+      { id:'enhance', cat:'Nail Enhancement', icon:'ti-diamond', items:[
+        { id:'e1', name:'Solar Full Set', price:45 },
+        { id:'e2', name:'Solar Fill-ins', price:45 },
+        { id:'e3', name:'Powder Color Full Set', price:50 },
+        { id:'e4', name:'Powder Color Fill-ins', price:45 },
+        { id:'e5', name:'Powder w/ White & Pearl Tips', price:40 },
+        { id:'e6', name:'Powder w/ Shellac', price:50 },
+        { id:'e7', name:'Refill w/ Shellac', price:45 },
+        { id:'e8', name:'Dipping Powder Full Set', price:45 },
+        { id:'e9', name:'Pink & White Full Set', price:50 },
+        { id:'e10', name:'Pink & White Fill-ins', price:45 },
+        { id:'e11', name:'Pink Fill', price:40 }
+      ]},
+      { id:'addons', cat:'Add-ons & Polish', icon:'ti-droplet', items:[
+        { id:'a1', name:'Polish Change \u2014 Hands', price:10 },
+        { id:'a2', name:'Polish Change \u2014 Hands (French)', price:12 },
+        { id:'a3', name:'Polish Change \u2014 Toes', price:10 },
+        { id:'a4', name:'Polish Change \u2014 Toes (French)', price:15 },
+        { id:'a5', name:'Soak Off', price:10 },
+        { id:'a6', name:'Cut Down', price:5 },
+        { id:'a7', name:'Cut Down & File', price:10 },
+        { id:'a8', name:'French', price:6 },
+        { id:'a9', name:'Paraffin Wax', price:6 },
+        { id:'a10', name:'Nail Design', price:5, plus:true },
+        { id:'a11', name:'Nail Repair', price:5 },
+        { id:'a12', name:'Shellac Polish Change \u2014 Feet', price:25 },
+        { id:'a13', name:'Shellac Polish Change \u2014 Hands', price:25 }
+      ]},
+      { id:'kids', cat:'Kids (11 & under)', icon:'ti-mood-kid', items:[
+        { id:'k1', name:'Spa Pedicure & Manicure', price:30 },
+        { id:'k2', name:'Pedicure', price:20 },
+        { id:'k3', name:'Manicure', price:12 },
+        { id:'k4', name:'Polish Change \u2014 Feet', price:7 },
+        { id:'k5', name:'Polish Change \u2014 Hands', price:6 }
+      ]},
+      { id:'waxing', cat:'Waxing', icon:'ti-wand', items:[
+        { id:'w1', name:'Full Face', price:30 },
+        { id:'w2', name:'Eyebrows', price:10 },
+        { id:'w3', name:'Lips & Chin', price:20 },
+        { id:'w4', name:'Chin', price:15 },
+        { id:'w5', name:'Full Arms', price:30, plus:true },
+        { id:'w6', name:'Underarms', price:20 },
+        { id:'w7', name:'Bikini', price:30, plus:true },
+        { id:'w8', name:'Full Legs', price:60 },
+        { id:'w9', name:'Half Legs', price:30 },
+        { id:'w10', name:'Full Back', price:50 }
+      ]}
+    ];
+    save('porters_catalog', CATALOG);
+  }
+  var techs = load('porters_techs2', null);
+  if(!techs){
+    techs = [
+      { id:'t1', name:'Lisa', cats:['manicure','pedicure','addons','kids','waxing'], days:{1:1,2:1,3:1,4:1,5:1,6:1}, start:9, end:18 },
+      { id:'t2', name:'Maria', cats:['enhance','manicure','pedicure','addons','waxing'], days:{2:1,3:1,4:1,5:1,6:1}, start:10, end:19 }
+    ];
+    save('porters_techs2', techs);
+  }
+  var appts = load('porters_appts', []);
+  var promo = load('porters_promo', { text:'', active:false });
+  var gallery = load('porters_gallery', []);
+  var info = load('porters_info', {
+    phone:'(281) 747-7421',
+    address:'23830 FM1314 Suite C, Porter, TX 77365',
+    hours:[
+      { closed:false, open:'10:00', close:'17:00' },
+      { closed:false, open:'09:00', close:'19:00' },
+      { closed:false, open:'09:00', close:'19:00' },
+      { closed:false, open:'09:00', close:'19:00' },
+      { closed:false, open:'09:00', close:'19:00' },
+      { closed:false, open:'09:00', close:'19:00' },
+      { closed:false, open:'09:00', close:'18:00' }
+    ]
   });
-  Array.prototype.forEach.call(tbody.querySelectorAll('.btn-sm-canc'), function(b){
-    b.onclick = function(){ updateApptStatus(b.dataset.cid, 'cancelled'); };
-  });
-  
-  var sRoot = document.getElementById('dash-services-root'); if(!sRoot) return;
-  sRoot.innerHTML = '';
-  
-  CATALOG.forEach(function(c){
-    var sect = document.createElement('div'); sect.className = 'dash-cat-sect';
-    sect.innerHTML = '<div class="dash-cat-title"><span>'+c.cat+'</span><span style="font-size:12px; font-family:sans-serif; opacity:0.6;">KEY ID: '+c.id+'</span></div>';
+
+  function catById(id){ return CATALOG.filter(function(c){return c.id===id;})[0]; }
+  function allItems(){ var o=[]; CATALOG.forEach(function(c){ c.items.forEach(function(it){ o.push(it); }); }); return o; }
+  function priceOf(name){ var it=allItems().filter(function(x){return x.name===name;})[0]; return it?it.price:null; }
+  function priceLabel(it){ return '$'+it.price+(it.plus?'+':''); }
+  function catName(id){ var c=catById(id); return c?c.cat:''; }
+
+  function pad(n){ return String(n).padStart(2,'0'); }
+  function ymd(d){ return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()); }
+  var todayStr = ymd(new Date());
+  function fmtTime(t){ var p=t.split(':').map(Number); var h=p[0],m=p[1]; var ap=h>=12?'PM':'AM'; h=h%12||12; return h+':'+pad(m)+' '+ap; }
+  function fmtDateLong(s){ var p=s.split('-'); var dt=new Date(p[0],p[1]-1,p[2]); return dt.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'}); }
+  function hourLabel(h){ var ap=h>=12?'pm':'am'; var hh=h>12?h-12:h; return hh+ap; }
+
+  function hm(s){ var p=s.split(':'); return (+p[0])*60+(+p[1]); }
+  function fmtHM(s){ return fmtTime(s); }
+
+  function applyInfo(){
+    var ph=info.phone, addr=info.address;
+    var fa=document.getElementById('footAddr'); if(fa) fa.textContent=addr;
+    var aa=document.getElementById('aboutAddr'); if(aa) aa.textContent=addr;
+    var fp=document.getElementById('footPhone'); if(fp){ fp.textContent=ph; fp.href='tel:'+ph.replace(/[^0-9]/g,''); }
+    var link=document.getElementById('mapLink');
+    if(link){
+      var isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+      var googlePin='https://maps.app.goo.gl/8AW8RNzP2fiX5LpN8';
+      var applePin='https://maps.apple.com/?q='+encodeURIComponent("Porter's Nails and Spa, 23830 FM1314 suite c, Porter, TX 77365");
+      link.href = isIOS ? applePin : googlePin;
+    }
+  }
+
+  function renderHoursPublic(){
+    var fh=document.getElementById('footHours');
+    if(fh){
+      fh.innerHTML = info.hours.map(function(d,i){
+        return DOW[i]+': '+(d.closed?'Closed':fmtHM(d.open)+' – '+fmtHM(d.close));
+      }).join('<br>');
+    }
+    var ah=document.getElementById('aboutHours');
+    if(ah){
+      var today=info.hours[new Date().getDay()];
+      ah.textContent = today.closed ? 'Closed today' : 'Today: '+fmtHM(today.open)+' – '+fmtHM(today.close);
+    }
+  }
+
+  function renderOpenBadge(){
+    var el=document.getElementById('openBadge'); if(!el) return;
+    var now=new Date(); var d=info.hours[now.getDay()];
+    var mins=now.getHours()*60+now.getMinutes();
+    var open = !d.closed && mins>=hm(d.open) && mins<hm(d.close);
+    el.className='open-badge '+(open?'open':'closed');
+    var lab = (typeof curLang!=='undefined' && curLang==='es')
+      ? (open?'Abierto ahora':'Cerrado ahora')
+      : (open?'Open now':'Closed now');
+    el.innerHTML='<span class="dot"></span> '+lab;
+  }
+
+  function renderPromo(){
+    var bar=document.getElementById('promoBar'); var t=document.getElementById('promoText');
+    if(!bar) return;
+    if(promo.active && promo.text){ t.innerHTML='<i class="ti ti-confetti"></i>'+promo.text; bar.style.display='block'; }
+    else { bar.style.display='none'; }
+  }
+
+  function renderGalleryPublic(){
+    var g=document.getElementById('galleryGrid'); if(!g) return;
+    if(!gallery.length){
+      g.innerHTML = '<div class="gal big"><i class="ti ti-camera"></i><span>Photos coming soon</span></div>'+
+        '<div class="gal"><i class="ti ti-camera"></i><span>Photos coming soon</span></div>'+
+        '<div class="gal"><i class="ti ti-camera"></i><span>Photos coming soon</span></div>'+
+        '<div class="gal"><i class="ti ti-camera"></i><span>Photos coming soon</span></div>'+
+        '<div class="gal"><i class="ti ti-camera"></i><span>Photos coming soon</span></div>';
+      return;
+    }
+    g.innerHTML = gallery.map(function(p,i){
+      var big = i===0 ? ' big' : '';
+      var cap = p.caption ? '<div class="gal-cap">'+p.caption+'</div>' : '';
+      return '<div class="gal gal-photo'+big+'" style="background-image:url(\''+p.url.replace(/'/g,"%27")+'\')">'+cap+'</div>';
+    }).join('');
+  }
+
+  function renderPublicServices(){
+    var g=document.getElementById('servicesGrid');
+    if(!g) return;
+    g.className='menu-cats';
+    g.innerHTML = CATALOG.map(function(c){
+      var rows = c.items.map(function(it){
+        return '<div class="menu-row"><span class="mr-name">'+it.name+'</span><span class="mr-dots"></span><span class="mr-price">'+priceLabel(it)+'</span></div>';
+      }).join('');
+      return '<div class="menu-cat"><div class="menu-cat-head"><span class="mc-ico"><i class="ti '+c.icon+'"></i></span><h3>'+c.cat+'</h3></div>'+rows+'</div>';
+    }).join('');
+  }
+
+  function techSlots(tech, dateStr){
+    var p=dateStr.split('-'); var dow=new Date(p[0],p[1]-1,p[2]).getDay();
+    if(!tech.days[dow]) return [];
+    var out=[]; for(var h=tech.start; h<tech.end; h++) out.push(pad(h)+':00'); return out;
+  }
+  function bookedTimes(techId, dateStr){
+    return appts.filter(function(a){ return a.techId===techId && a.date===dateStr && a.status!=='declined'; }).map(function(a){ return a.time; });
+  }
+  function dayState(tech, dateStr){
+    if(dateStr < todayStr) return 'past';
+    var slots = techSlots(tech, dateStr);
+    if(slots.length===0) return 'off';
+    var booked = bookedTimes(tech.id, dateStr);
+    return slots.every(function(s){ return booked.indexOf(s)>-1; }) ? 'full' : 'open';
+  }
+
+  var wiz = { step:1, cat:null, service:null, priceLabel:null, techId:null, date:null, time:null };
+  var calRef = new Date(); calRef.setDate(1);
+  var STEP_LABELS = ["Type","Service","Tech","Date","Time","Details"];
+
+  function renderSteps(){
+    var el = document.getElementById('wizSteps');
+    if(wiz.step>6){ el.innerHTML=''; return; }
+    el.innerHTML = STEP_LABELS.map(function(lbl,i){
+      var n=i+1; var cls = n<wiz.step?'done':(n===wiz.step?'active':'');
+      var inner = '<div class="wiz-step '+cls+'"><div class="num">'+(n<wiz.step?'<i class="ti ti-check"></i>':n)+'</div><span class="txt">'+lbl+'</span></div>';
+      return inner + (n<6?'<div class="wiz-line"></div>':'');
+    }).join('');
+  }
+
+  function render(){
+    renderSteps();
+    var b = document.getElementById('wizBody');
+    if(wiz.step===1) return renderCategory(b);
+    if(wiz.step===2) return renderService(b);
+    if(wiz.step===3) return renderTech(b);
+    if(wiz.step===4) return renderDate(b);
+    if(wiz.step===5) return renderTimeStep(b);
+    if(wiz.step===6) return renderDetails(b);
+    if(wiz.step===7) return renderConfirmed(b);
+  }
+
+  function renderCategory(b){
+    b.innerHTML = '<div class="wiz-title">What kind of service?</div><div class="wiz-sub">Pick a category to get started</div>'+
+      '<div class="choice-grid">'+CATALOG.map(function(c){
+        return '<div class="choice '+(wiz.cat===c.id?'sel':'')+'" data-cat="'+c.id+'"><div style="display:flex;align-items:center;gap:12px"><span class="cat-ico"><i class="ti '+c.icon+'"></i></span><div class="c-name">'+c.cat+'</div></div><i class="ti ti-chevron-right" style="color:var(--rose-mid)"></i></div>';
+      }).join('')+'</div>';
+    Array.prototype.forEach.call(b.querySelectorAll('[data-cat]'),function(el){ el.onclick=function(){ wiz.cat=el.dataset.cat; wiz.service=null; wiz.techId=null; wiz.date=null; wiz.time=null; wiz.step=2; render(); }; });
+  }
+
+  function renderService(b){
+    var c=catById(wiz.cat);
+    b.innerHTML = '<div class="wiz-title">Choose your service</div><div class="wiz-sub">'+c.cat+'</div>'+
+      '<div class="choice-grid">'+c.items.map(function(it){ return '<div class="choice '+(wiz.service===it.name?'sel':'')+'" data-svc="'+it.name+'" data-price="'+priceLabel(it)+'"><div><div class="c-name">'+it.name+'</div><div class="c-meta">'+priceLabel(it)+'</div></div><i class="ti ti-chevron-right" style="color:var(--rose-mid)"></i></div>'; }).join('')+'</div>'+
+      '<div class="wiz-actions"><button class="wiz-back"><i class="ti ti-arrow-left"></i> Back</button><span></span></div>';
+    Array.prototype.forEach.call(b.querySelectorAll('[data-svc]'),function(el){ el.onclick=function(){ wiz.service=el.dataset.svc; wiz.priceLabel=el.dataset.price; wiz.techId=null; wiz.date=null; wiz.time=null; wiz.step=3; render(); }; });
+    b.querySelector('.wiz-back').onclick=function(){ wiz.step=1; render(); };
+  }
+
+  function renderTech(b){
+    var avail = techs.filter(function(t){ return t.cats.indexOf(wiz.cat)>-1; });
+    var list;
+    if(avail.length===0){
+      list = '<div class="empty-techs"><i class="ti ti-user-question"></i><p>No nail techs are set up for this service yet.<br>Please call us at (281) 747-7421.</p></div>';
+    } else {
+      list = '<div class="choice-grid">'+avail.map(function(t){
+        var dayNames = Object.keys(t.days).filter(function(k){ return t.days[k]; }).map(function(k){ return DOW[k]; }).join(', ');
+        return '<div class="choice '+(wiz.techId===t.id?'sel':'')+'" data-tech="'+t.id+'"><div><div class="c-name">'+t.name+'</div><div class="c-meta">Works '+dayNames+'</div></div><span class="tech-ava">'+hourLabel(t.start)+'&ndash;'+hourLabel(t.end)+'</span></div>';
+      }).join('')+'</div>';
+    }
+    b.innerHTML = '<div class="wiz-title">Choose your nail tech</div><div class="wiz-sub">These techs can do your '+wiz.service.toLowerCase()+'</div>'+list+
+      '<div class="wiz-actions"><button class="wiz-back"><i class="ti ti-arrow-left"></i> Back</button><span></span></div>';
+    Array.prototype.forEach.call(b.querySelectorAll('[data-tech]'),function(el){ el.onclick=function(){ wiz.techId=el.dataset.tech; wiz.date=null; wiz.time=null; wiz.step=4; render(); }; });
+    b.querySelector('.wiz-back').onclick=function(){ wiz.step=2; render(); };
+  }
+
+  function renderDate(b){
+    var tech = techs.filter(function(t){return t.id===wiz.techId;})[0];
+    var y=calRef.getFullYear(), m=calRef.getMonth();
     
-    var tb = document.createElement('div');
-    c.items.forEach(function(it){
-      var r = document.createElement('div'); r.className = 'dash-item-edit-row';
-      var ch = it.plus?'checked':'';
-      r.innerHTML = '<input type="text" value="'+it.name+'" class="se-name" />' +
-                    '<input type="number" value="'+it.price+'" class="se-price" />' +
-                    '<label style="font-size:12px; font-weight:600; display:flex; align-items:center; gap:4px;"><input type="checkbox" class="se-plus" '+ch+' /> & Up</label>' +
-                    '<button class="btn-sm" style="background:#534AB7; color:white;" data-savec="'+c.id+'" data-savei="'+it.id+'">Save</button>' +
-                    '<button class="btn-sm" style="background:#dc3545; color:white;" data-delc="'+c.id+'" data-deli="'+it.id+'">Delete</button>';
-      r.querySelector('.se-name').setAttribute('id', 'nm-'+it.id);
-      r.querySelector('.se-price').setAttribute('id', 'pr-'+it.id);
-      tb.appendChild(r);
-    });
-    
-    var addRow = document.createElement('div'); addRow.className = 'dash-item-edit-row';
-    addRow.style.marginTop = '15px'; addRow.style.background = 'var(--cream)'; addRow.style.padding = '10px'; addRow.style.borderRadius = '6px';
-    addRow.innerHTML = '<input type="text" placeholder="New Item Description Label" id="ain-'+c.id+'" style="flex:1;" />' +
-                       '<input type="number" placeholder="Price" id="aip-'+c.id+'" style="width:80px;" />' +
-                       '<button class="btn-wiz-next" style="padding:6px 14px; font-size:13px; border-radius:4px;" data-addc="'+c.id+'">Add Entry</button>';
-    tb.appendChild(addRow);
-    sect.appendChild(tb);
-    sRoot.appendChild(sect);
-  });
-  
-  Array.prototype.forEach.call(sRoot.querySelectorAll('[data-savei]'), function(b){
-    b.onclick = function(){
-      var cid = b.dataset.savec; var iid = b.dataset.savei;
-      var it = itemById(cid, iid); if(!it) return;
-      var card = b.parentNode;
-      var nm = card.querySelector('.se-name').value.trim();
-      var pr = parseInt(card.querySelector('.se-price').value, 10);
+    // --- UX Fix: Auto-jump to next month if current month is fully booked/passed ---
+    var thisMonth = new Date(); 
+    if(y === thisMonth.getFullYear() && m === thisMonth.getMonth()){
+      var daysInCheck = new Date(y, m+1, 0).getDate();
+      var hasOpen = false;
+      for(var dCheck=1; dCheck<=daysInCheck; dCheck++){
+        if(dayState(tech, y+'-'+pad(m+1)+'-'+pad(dCheck)) === 'open') { hasOpen = true; break; }
+      }
+      if(!hasOpen) {
+        calRef.setMonth(calRef.getMonth() + 1);
+        return renderDate(b);
+      }
+    }
+    // --- End UX Fix ---
+
+    var monthName = calRef.toLocaleDateString('en-US',{month:'long',year:'numeric'});
+    var firstDow = new Date(y,m,1).getDay();
+    var daysIn = new Date(y,m+1,0).getDate();
+    var atStart = (y===thisMonth.getFullYear() && m===thisMonth.getMonth());
+    var cells='';
+    for(var i=0;i<firstDow;i++) cells+='<div class="cal-day empty"></div>';
+    for(var d=1; d<=daysIn; d++){
+      var ds = y+'-'+pad(m+1)+'-'+pad(d);
+      var st = dayState(tech, ds);
+      if(st==='open') cells+='<div class="cal-day open '+(wiz.date===ds?'sel':'')+'" data-date="'+ds+'">'+d+'</div>';
+      else cells+='<div class="cal-day blocked">'+d+'</div>';
+    }
+    b.innerHTML = '<div class="wiz-title">Pick a date</div><div class="wiz-sub">Available days with '+tech.name+' are highlighted</div>'+
+      '<div class="cal-head"><button class="cal-nav" id="calPrev" '+(atStart?'disabled':'')+'><i class="ti ti-chevron-left"></i></button><div class="cal-mon">'+monthName+'</div><button class="cal-nav" id="calNext"><i class="ti ti-chevron-right"></i></button></div>'+
+      '<div class="cal-grid">'+DOW.map(function(d){ return '<div class="cal-dow">'+d+'</div>'; }).join('')+cells+'</div>'+
+      '<div class="cal-legend"><span><span class="lg-dot" style="background:var(--rose);border:1.5px solid var(--rose-mid)"></span> Available</span><span><span class="lg-dot" style="background:#eadede"></span> Booked / closed</span></div>'+
+      '<div class="wiz-actions"><button class="wiz-back"><i class="ti ti-arrow-left"></i> Back</button><span></span></div>';
+    Array.prototype.forEach.call(b.querySelectorAll('[data-date]'),function(el){ el.onclick=function(){ wiz.date=el.dataset.date; wiz.time=null; wiz.step=5; render(); }; });
+    b.querySelector('#calPrev').onclick=function(){ if(!atStart){ calRef.setMonth(calRef.getMonth()-1); render(); } };
+    b.querySelector('#calNext').onclick=function(){ calRef.setMonth(calRef.getMonth()+1); render(); };
+    b.querySelector('.wiz-back').onclick=function(){ wiz.step=3; render(); };
+  }
+
+  function renderTimeStep(b){
+    var tech = techs.filter(function(t){return t.id===wiz.techId;})[0];
+    var slots = techSlots(tech, wiz.date);
+    var booked = bookedTimes(tech.id, wiz.date);
+    b.innerHTML = '<div class="wiz-title">Pick a time</div><div class="wiz-sub">'+fmtDateLong(wiz.date)+' with '+tech.name+'</div>'+
+      '<div class="slot-grid">'+slots.map(function(s){
+        var taken = booked.indexOf(s)>-1;
+        return '<div class="slot '+(taken?'taken':'')+' '+(wiz.time===s?'sel':'')+'" '+(taken?'':'data-time="'+s+'"')+'>'+fmtTime(s)+'</div>';
+      }).join('')+'</div>'+
+      '<div class="wiz-actions"><button class="wiz-back"><i class="ti ti-arrow-left"></i> Back</button><span></span></div>';
+    Array.prototype.forEach.call(b.querySelectorAll('[data-time]'),function(el){ el.onclick=function(){ wiz.time=el.dataset.time; wiz.step=6; render(); }; });
+    b.querySelector('.wiz-back').onclick=function(){ wiz.step=4; render(); };
+  }
+
+  function renderDetails(b){
+    var tech = techs.filter(function(t){return t.id===wiz.techId;})[0];
+    b.innerHTML = '<div class="wiz-title">Your details</div><div class="wiz-sub">Almost done! We\'ll use this to confirm your appointment</div>'+
+      '<div class="summary">'+
+        '<div><span>Service</span><strong>'+wiz.service+(wiz.priceLabel?' ('+wiz.priceLabel+')':'')+'</strong></div>'+
+        '<div><span>Nail tech</span><strong>'+tech.name+'</strong></div>'+
+        '<div><span>Date</span><strong>'+fmtDateLong(wiz.date)+'</strong></div>'+
+        '<div><span>Time</span><strong>'+fmtTime(wiz.time)+'</strong></div>'+
+      '</div>'+
+      '<div class="field-row"><div class="field"><label>Your name</label><input id="dName" placeholder="Jane Doe"></div><div class="field"><label>Phone number</label><input id="dPhone" placeholder="(281) 555-0000"></div></div>'+
+      '<div class="field"><label>Email (optional)</label><input id="dEmail" placeholder="you@email.com"></div>'+
+      '<div class="field"><label>Notes (optional)</label><textarea id="dNotes" placeholder="Any special requests?"></textarea></div>'+
+      '<button class="btn btn-primary" id="submitBtn" style="width:100%;justify-content:center;"><i class="ti ti-calendar-check"></i> Request appointment</button>'+
+      '<div class="wiz-actions"><button class="wiz-back"><i class="ti ti-arrow-left"></i> Back</button><span></span></div>';
+    b.querySelector('#submitBtn').onclick=function(){
+      var name=b.querySelector('#dName').value.trim(); var phone=b.querySelector('#dPhone').value.trim();
+      if(!name||!phone){ showToast('Please enter your name and phone number'); return; }
+      appts.push({ id:'a'+Date.now(), service:wiz.service, category:catName(wiz.cat), techId:wiz.techId, techName:tech.name, date:wiz.date, time:wiz.time, name:name, phone:phone, email:b.querySelector('#dEmail').value.trim(), notes:b.querySelector('#dNotes').value.trim(), status:'pending', created:Date.now() });
+      save('porters_appts', appts);
+      wiz.step=7; render();
+    };
+    b.querySelector('.wiz-back').onclick=function(){ wiz.step=5; render(); };
+  }
+
+  function renderConfirmed(b){
+    document.getElementById('wizSteps').innerHTML='';
+    b.innerHTML = '<div class="wiz-done">'+
+      '<div class="check"><i class="ti ti-check"></i></div>'+
+      '<h3>Request received!</h3>'+
+      '<p>Thank you! Your appointment request has been sent. It\'s not confirmed just yet &mdash; the salon will review and approve it, and you\'ll get a confirmation by text or email.</p>'+
+      '<div class="pending-note"><i class="ti ti-info-circle"></i> Status: pending approval. In the live version, you\'d receive an automatic confirmation message once the salon approves.</div>'+
+      '<button class="btn btn-ghost" id="againBtn" style="margin-top:1.5rem;"><i class="ti ti-plus"></i> Book another</button>'+
+      '</div>';
+    b.querySelector('#againBtn').onclick=function(){ wiz={step:1,cat:null,service:null,priceLabel:null,techId:null,date:null,time:null}; calRef=new Date(); calRef.setDate(1); render(); };
+  }
+
+  function showToast(msg){ var t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(function(){ t.classList.remove('show'); },2600); }
+
+  var overlay=document.getElementById('ownerOverlay');
+  document.getElementById('ownerLink').onclick=function(e){ e.preventDefault(); overlay.classList.add('show'); };
+  document.getElementById('modalClose').onclick=function(){ overlay.classList.remove('show'); };
+  overlay.onclick=function(e){ if(e.target===overlay) overlay.classList.remove('show'); };
+  var ownerPass=document.getElementById('ownerPass');
+  document.getElementById('loginBtn').onclick=doLogin;
+  ownerPass.onkeydown=function(e){ if(e.key==='Enter') doLogin(); };
+  function doLogin(){ if(ownerPass.value===OWNER_PASSWORD){ document.getElementById('loginErr').classList.remove('show'); ownerPass.value=''; document.getElementById('loginView').style.display='none'; document.getElementById('dashView').style.display='block'; document.getElementById('modalTitle').textContent='Owner dashboard'; ownerTab='appts'; renderDash(); } else { document.getElementById('loginErr').classList.add('show'); } }
+
+  var ownerTab='appts';
+  function renderDash(){
+    var d=document.getElementById('dashView');
+    d.innerHTML = '<div class="tabs">'+
+      '<button class="tab '+(ownerTab==='appts'?'active':'')+'" data-tab="appts">Appointments</button>'+
+      '<button class="tab '+(ownerTab==='promo'?'active':'')+'" data-tab="promo">Promotion</button>'+
+      '<button class="tab '+(ownerTab==='photos'?'active':'')+'" data-tab="photos">Photos</button>'+
+      '<button class="tab '+(ownerTab==='techs'?'active':'')+'" data-tab="techs">Nail techs</button>'+
+      '<button class="tab '+(ownerTab==='services'?'active':'')+'" data-tab="services">Services &amp; prices</button>'+
+      '<button class="tab '+(ownerTab==='hours'?'active':'')+'" data-tab="hours">Hours &amp; info</button>'+
+      '<button class="tab" id="logoutTab" style="margin-left:auto;color:var(--text-muted)">Log out</button></div><div id="tabBody"></div>';
+    Array.prototype.forEach.call(d.querySelectorAll('[data-tab]'),function(el){ el.onclick=function(){ ownerTab=el.dataset.tab; renderDash(); }; });
+    d.querySelector('#logoutTab').onclick=function(){ document.getElementById('dashView').style.display='none'; document.getElementById('loginView').style.display='block'; document.getElementById('modalTitle').textContent='Owner login'; };
+    if(ownerTab==='appts') renderApptsTab();
+    else if(ownerTab==='promo') renderPromoTab();
+    else if(ownerTab==='photos') renderPhotosTab();
+    else if(ownerTab==='techs') renderTechsTab();
+    else if(ownerTab==='services') renderServicesTab();
+    else renderHoursTab();
+  }
+
+  function renderApptsTab(){
+    var tb=document.getElementById('tabBody');
+    var sorted=appts.slice().sort(function(a,b){ return (a.date+a.time).localeCompare(b.date+b.time); });
+    var pending=appts.filter(function(a){return a.status==='pending';}).length;
+    var confirmed=appts.filter(function(a){return a.status==='confirmed';}).length;
+    var html = '<div class="demo-banner"><i class="ti ti-info-circle"></i><div>Demo mode: bookings are saved on this device only. On the live site they\'ll sync across devices and auto-send texts/emails when you approve.</div></div>'+
+      '<div class="dash-stats"><div class="stat"><div class="s-label">Total</div><div class="s-val">'+appts.length+'</div></div><div class="stat"><div class="s-label">Pending</div><div class="s-val">'+pending+'</div></div><div class="stat"><div class="s-label">Confirmed</div><div class="s-val">'+confirmed+'</div></div></div>';
+    if(sorted.length===0){ html+='<div class="dash-empty"><i class="ti ti-calendar-off"></i><p>No appointments yet. Try booking one from the website to see it appear here.</p></div>'; tb.innerHTML=html; return; }
+    html += sorted.map(function(a){
+      var p=a.date.split('-'); var dt=new Date(p[0],p[1]-1,p[2]);
+      var actions = a.status==='pending' ? '<div class="mini-btns"><button class="mini ok" data-ok="'+a.id+'"><i class="ti ti-check"></i> Approve</button><button class="mini no" data-no="'+a.id+'">Decline</button></div>' : '<span class="badge '+a.status+'">'+a.status+'</span>';
+      return '<div class="appt"><div class="a-date"><div class="ad-day">'+dt.getDate()+'</div><div class="ad-mon">'+dt.toLocaleDateString('en-US',{month:'short'})+'</div></div>'+
+        '<div><div class="a-name">'+a.name+'</div><div class="a-meta"><i class="ti ti-phone" style="font-size:11px"></i> '+a.phone+' &middot; '+fmtTime(a.time)+' &middot; with '+a.techName+'</div><div class="a-svc">'+a.service+(a.notes?' &middot; '+a.notes:'')+'</div></div>'+
+        '<div class="a-right">'+actions+'</div></div>';
+    }).join('');
+    tb.innerHTML=html;
+    Array.prototype.forEach.call(tb.querySelectorAll('[data-ok]'),function(el){ el.onclick=function(){ var a=appts.filter(function(x){return x.id===el.dataset.ok;})[0]; a.status='confirmed'; save('porters_appts',appts); showToast('Approved! A confirmation would be texted to '+a.phone); renderDash(); }; });
+    Array.prototype.forEach.call(tb.querySelectorAll('[data-no]'),function(el){ el.onclick=function(){ var a=appts.filter(function(x){return x.id===el.dataset.no;})[0]; a.status='declined'; save('porters_appts',appts); renderDash(); }; });
+  }
+
+  function renderTechsTab(){
+    var tb=document.getElementById('tabBody');
+    var html = '<div class="help">Add your nail techs and check which <b>types of service</b> each one does, plus their working days and hours.</div>';
+    html += techs.length ? techs.map(function(t){
+      var dayNames=Object.keys(t.days).filter(function(k){return t.days[k];}).map(function(k){return DOW[k];}).join(', ');
+      return '<div class="tech-row"><div><div class="t-name">'+t.name+'</div><div class="t-meta">'+t.cats.length+' service types &middot; '+(dayNames||'no days set')+' &middot; '+hourLabel(t.start)+'&ndash;'+hourLabel(t.end)+'</div></div><button class="mini no" data-del="'+t.id+'"><i class="ti ti-trash"></i></button></div>';
+    }).join('') : '<div class="dash-empty"><i class="ti ti-user-off"></i><p>No nail techs yet. Add one below.</p></div>';
+    html += '<div class="add-form">'+
+      '<h4>Add a nail tech</h4>'+
+      '<div class="field"><label>Name</label><input id="ntName" placeholder="e.g. Anna"></div>'+
+      '<span class="lbl">Service types they do</span><div class="chk-grid" id="ntCats">'+CATALOG.map(function(c){ return '<label class="chk"><input type="checkbox" value="'+c.id+'"> '+c.cat+'</label>'; }).join('')+'</div>'+
+      '<span class="lbl">Working days</span><div class="chk-grid" id="ntDays">'+DOW.map(function(d,i){ return '<label class="chk"><input type="checkbox" value="'+i+'"> '+d+'</label>'; }).join('')+'</div>'+
+      '<div class="field-row"><div class="field"><label>Starts at</label><select id="ntStart">'+[8,9,10,11,12].map(function(h){ return '<option value="'+h+'" '+(h===9?'selected':'')+'>'+hourLabel(h)+'</option>'; }).join('')+'</select></div><div class="field"><label>Ends at</label><select id="ntEnd">'+[15,16,17,18,19,20].map(function(h){ return '<option value="'+h+'" '+(h===18?'selected':'')+'>'+hourLabel(h)+'</option>'; }).join('')+'</select></div></div>'+
+      '<button class="btn btn-primary btn-big" id="addTechBtn"><i class="ti ti-user-plus"></i> Add nail tech</button>'+
+      '</div>';
+    tb.innerHTML=html;
+    Array.prototype.forEach.call(tb.querySelectorAll('.chk input'),function(c){ c.onchange=function(){ c.closest('.chk').classList.toggle('on',c.checked); }; });
+    Array.prototype.forEach.call(tb.querySelectorAll('[data-del]'),function(el){ el.onclick=function(){ techs=techs.filter(function(t){return t.id!==el.dataset.del;}); save('porters_techs2',techs); renderDash(); }; });
+    tb.querySelector('#addTechBtn').onclick=function(){
+      var name=tb.querySelector('#ntName').value.trim();
+      var cats=Array.prototype.map.call(tb.querySelectorAll('#ntCats input:checked'),function(c){return c.value;});
+      var dayArr=Array.prototype.map.call(tb.querySelectorAll('#ntDays input:checked'),function(c){return +c.value;});
+      if(!name){ showToast('Please enter a name'); return; }
+      if(!cats.length){ showToast('Select at least one service type'); return; }
+      if(!dayArr.length){ showToast('Select at least one working day'); return; }
+      var days={}; dayArr.forEach(function(d){ days[d]=1; });
+      techs.push({ id:'t'+Date.now(), name:name, cats:cats, days:days, start:+tb.querySelector('#ntStart').value, end:+tb.querySelector('#ntEnd').value });
+      save('porters_techs2',techs); showToast(name+' added!'); renderDash();
+    };
+  }
+
+  function renderPromoTab(){
+    var tb=document.getElementById('tabBody');
+    tb.innerHTML =
+      '<div class="help">Use this to show a coloured banner across the very top of your website &mdash; great for deals or news, like <b>&ldquo;20% off gel sets this week!&rdquo;</b><br>Turn it on, type your message, and press Save.</div>'+
+      '<div class="toggle-row"><span class="tr-label">Show the banner on the website</span>'+
+        '<label class="switch"><input type="checkbox" id="promoActive" '+(promo.active?'checked':'')+'><span class="slider-sw"></span></label></div>'+
+      '<label class="big-label">Banner message</label>'+
+      '<input class="big-input" id="promoMsg" maxlength="120" placeholder="e.g. 20% off gel manicures this week!" value="'+(promo.text||'').replace(/"/g,'&quot;')+'">'+
+      '<button class="btn btn-primary btn-big" id="promoSave"><i class="ti ti-device-floppy"></i> Save banner</button>';
+    tb.querySelector('#promoSave').onclick=function(){
+      promo.text=tb.querySelector('#promoMsg').value.trim();
+      promo.active=tb.querySelector('#promoActive').checked;
+      save('porters_promo',promo); renderPromo();
+      showToast(promo.active&&promo.text?'Banner is now showing!':'Saved.');
+    };
+  }
+
+  function renderPhotosTab(){
+    var tb=document.getElementById('tabBody');
+    var list = gallery.length ? gallery.map(function(p,i){
+      return '<div class="gphoto-row"><img src="'+p.url+'" alt=""><div class="gp-cap">'+(p.caption||'(no caption)')+(i===0?' &middot; <span style="color:var(--rose-dark)">featured</span>':'')+'</div><button class="mini no" data-delp="'+p.id+'"><i class="ti ti-trash"></i></button></div>';
+    }).join('') : '<div class="dash-empty"><i class="ti ti-photo-off"></i><p>No photos yet. Add your first one below.</p></div>';
+    tb.innerHTML =
+      '<div class="help">Add photos of your nail work to the Gallery. The <b>first photo is the big featured one.</b><br>How to get a photo link: open the photo on Instagram, Facebook, or Google Photos, tap Share &rarr; Copy link, and paste it below. <i>(Uploading straight from your phone comes with the upgraded website.)</i></div>'+
+      list +
+      '<div class="add-form"><h4>Add a photo</h4>'+
+      '<label class="big-label">Photo link (URL)</label>'+
+      '<input class="big-input" id="newPhotoUrl" placeholder="https://...">'+
+      '<label class="big-label">Caption (optional)</label>'+
+      '<input class="big-input" id="newPhotoCap" placeholder="e.g. Spring floral set">'+
+      '<button class="btn btn-primary btn-big" id="addPhoto"><i class="ti ti-plus"></i> Add photo</button></div>';
+    Array.prototype.forEach.call(tb.querySelectorAll('[data-delp]'),function(el){ el.onclick=function(){ gallery=gallery.filter(function(p){return p.id!==el.dataset.delp;}); save('porters_gallery',gallery); renderGalleryPublic(); renderDash(); }; });
+    tb.querySelector('#addPhoto').onclick=function(){
+      var url=tb.querySelector('#newPhotoUrl').value.trim();
+      if(!url){ showToast('Please paste a photo link'); return; }
+      if(!/^https?:\/\//i.test(url)){ showToast('That doesn\'t look like a link (should start with http)'); return; }
+      gallery.push({ id:'g'+Date.now(), url:url, caption:tb.querySelector('#newPhotoCap').value.trim() });
+      save('porters_gallery',gallery); renderGalleryPublic(); showToast('Photo added!'); renderDash();
+    };
+  }
+
+  function timeOptions(sel){
+    var out='';
+    for(var h=7; h<=21; h++){ for(var m=0;m<60;m+=30){ var v=pad(h)+':'+pad(m); out+='<option value="'+v+'" '+(v===sel?'selected':'')+'>'+fmtTime(v)+'</option>'; } }
+    return out;
+  }
+  function renderHoursTab(){
+    var tb=document.getElementById('tabBody');
+    var rows=info.hours.map(function(d,i){
+      return '<div class="hours-edit-row" data-day="'+i+'">'+
+        '<span class="hd-day">'+['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][i]+'</span>'+
+        '<select class="hd-state">'+
+          '<option value="open" '+(d.closed?'':'selected')+'>Open</option>'+
+          '<option value="closed" '+(d.closed?'selected':'')+'>Closed</option></select>'+
+        '<span class="hd-times">'+
+          '<select class="hd-open">'+timeOptions(d.open)+'</select> to '+
+          '<select class="hd-close">'+timeOptions(d.close)+'</select></span></div>';
+    }).join('');
+    tb.innerHTML =
+      '<div class="help">Update your <b>phone, address, and hours</b> here. These show in the footer and the &ldquo;Open now&rdquo; sign updates automatically. Press Save when you&rsquo;re done.</div>'+
+      '<label class="big-label">Phone number</label><input class="big-input" id="infoPhone" value="'+info.phone.replace(/"/g,'&quot;')+'">'+
+      '<label class="big-label">Address</label><input class="big-input" id="infoAddr" value="'+info.address.replace(/"/g,'&quot;')+'">'+
+      '<label class="big-label" style="margin-bottom:.6rem">Opening hours</label>'+rows+
+      '<button class="btn btn-primary btn-big" id="infoSave" style="margin-top:1rem"><i class="ti ti-device-floppy"></i> Save changes</button>';
+    tb.querySelector('#infoSave').onclick=function(){
+      info.phone=tb.querySelector('#infoPhone').value.trim()||info.phone;
+      info.address=tb.querySelector('#infoAddr').value.trim()||info.address;
+      Array.prototype.forEach.call(tb.querySelectorAll('.hours-edit-row'),function(row){
+        var i=+row.dataset.day;
+        info.hours[i]={ closed: row.querySelector('.hd-state').value==='closed',
+                        open: row.querySelector('.hd-open').value,
+                        close: row.querySelector('.hd-close').value };
+      });
+      save('porters_info',info); applyInfo(); renderHoursPublic(); renderOpenBadge();
+      showToast('Saved! Your website is updated.');
+    };
+  }
+
+  function renderServicesTab(){
+    var tb=document.getElementById('tabBody');
+    var html = '<div class="help">This is your full price list. Edit a price or name and press <b>Save</b> on that item. You can add or remove items in any category. Changes update the website menu and booking right away.</div>';
+    html += CATALOG.map(function(c){
+      var items = c.items.map(function(it){
+        return '<div class="svc-edit" data-iid="'+it.id+'" data-cid="'+c.id+'">'+
+          '<div class="se-row"><input class="se-name" value="'+it.name.replace(/"/g,'&quot;')+'" placeholder="Service name"><input class="se-price" type="number" min="0" value="'+it.price+'" placeholder="Price"></div>'+
+          '<label class="chk" style="display:inline-flex;margin:.2rem 0 .4rem"><input type="checkbox" class="se-plus" '+(it.plus?'checked':'')+'> Show price as &ldquo;+&rdquo; (starting from)</label>'+
+          '<div class="se-actions"><button class="mini no" data-deli="'+it.id+'" data-delc="'+c.id+'"><i class="ti ti-trash"></i> Delete</button><button class="mini ok" data-savei="'+it.id+'" data-savec="'+c.id+'"><i class="ti ti-device-floppy"></i> Save</button></div>'+
+        '</div>';
+      }).join('');
+      return '<div class="menu-edit-cat"><div class="menu-cat-head" style="margin:1.25rem 0 .75rem"><span class="mc-ico"><i class="ti '+c.icon+'"></i></span><h3>'+c.cat+'</h3></div>'+items+
+        '<div class="add-inline"><input class="ai-name" id="ain-'+c.id+'" placeholder="New item name"><input class="ai-price" id="aip-'+c.id+'" type="number" min="0" placeholder="$"><button class="mini ok" data-addc="'+c.id+'"><i class="ti ti-plus"></i> Add</button></div></div>';
+    }).join('');
+    tb.innerHTML=html;
+
+    function findItem(cid,iid){ var c=catById(cid); return c?c.items.filter(function(x){return x.id===iid;})[0]:null; }
+
+    Array.prototype.forEach.call(tb.querySelectorAll('[data-savei]'),function(el){ el.onclick=function(){
+      var card=el.closest('.svc-edit'); var it=findItem(el.dataset.savec, el.dataset.savei); if(!it) return;
+      var nm=card.querySelector('.se-name').value.trim(); var pr=parseInt(card.querySelector('.se-price').value,10);
       if(!nm){ showToast('Name cannot be empty'); return; }
       if(isNaN(pr)||pr<0){ showToast('Enter a valid price'); return; }
-      it.name = nm; it.price = pr; it.plus = card.querySelector('.se-plus').checked;
-      save('porters_catalog', CATALOG); renderPublicServices(); showToast('Saved!'); renderDash();
-    };
-  });
-  Array.prototype.forEach.call(sRoot.querySelectorAll('[data-deli]'), function(b){
-    b.onclick = function(){
-      var c = catById(b.dataset.delc); if(!c) return;
-      c.items = c.items.filter(function(x){ return x.id !== b.dataset.deli; });
-      save('porters_catalog', CATALOG); renderPublicServices(); showToast('Item removed'); renderDash();
-    };
-  });
-  Array.prototype.forEach.call(sRoot.querySelectorAll('[data-addc]'), function(b){
-    b.onclick = function(){
-      var cid = b.dataset.addc; var c = catById(cid);
-      var nm = document.getElementById('ain-'+cid).value.trim();
-      var pr = parseInt(document.getElementById('aip-'+cid).value, 10);
+      it.name=nm; it.price=pr; it.plus=card.querySelector('.se-plus').checked;
+      save('porters_catalog',CATALOG); renderPublicServices(); showToast('Saved!'); renderDash();
+    }; });
+    Array.prototype.forEach.call(tb.querySelectorAll('[data-deli]'),function(el){ el.onclick=function(){
+      var c=catById(el.dataset.delc); if(!c) return;
+      c.items=c.items.filter(function(x){return x.id!==el.dataset.deli;});
+      save('porters_catalog',CATALOG); renderPublicServices(); showToast('Item removed'); renderDash();
+    }; });
+    Array.prototype.forEach.call(tb.querySelectorAll('[data-addc]'),function(el){ el.onclick=function(){
+      var cid=el.dataset.addc; var c=catById(cid);
+      var nm=tb.querySelector('#ain-'+cid).value.trim(); var pr=parseInt(tb.querySelector('#aip-'+cid).value,10);
       if(!nm){ showToast('Enter an item name'); return; }
       if(isNaN(pr)||pr<0){ showToast('Enter a price'); return; }
-      c.items.push({ id: cid+'_'+Date.now(), name: nm, price: pr });
-      save('porters_catalog', CATALOG); renderPublicServices(); showToast('Added Item Successfully!'); renderDash();
-    };
-  });
-}
+      c.items.push({ id:cid+'_'+Date.now(), name:nm, price:pr });
+      save('porters_catalog',CATALOG); renderPublicServices(); showToast(nm+' added!'); renderDash();
+    }; });
+  }
 
-function updateApptStatus(id, stat){
-  APPOINTMENTS.forEach(function(a){ if(a.id===id) a.status=stat; });
-  save('porters_appts', APPOINTMENTS); showToast('Status changed to ' + stat); renderDash();
-}
-
-window.onload = function(){
+  applyInfo();
+  renderHoursPublic();
+  renderOpenBadge();
+  renderPromo();
+  renderGalleryPublic();
   renderPublicServices();
-  
-  document.getElementById('lnk-home').onclick = function(e){ e.preventDefault(); showView('view-home'); };
-  document.getElementById('lnk-brand').onclick = function(e){ e.preventDefault(); showView('view-home'); };
-  document.getElementById('lnk-services').onclick = function(e){ e.preventDefault(); showView('view-services'); };
-  document.getElementById('btn-hero-services').onclick = function(e){ e.preventDefault(); showView('view-services'); };
-  document.getElementById('lnk-book-nav').onclick = function(e){ e.preventDefault(); initWizard(null,null); };
-  document.getElementById('btn-hero-book').onclick = function(e){ e.preventDefault(); initWizard(null,null); };
-  
-  document.getElementById('btn-wiz-next').onclick = handleWizNext;
-  document.getElementById('btn-wiz-prev').onclick = handleWizPrev;
-  
-  document.getElementById('wiz-date-input').onchange = function(e){
-    wiz.date = e.target.value; wiz.time = ''; renderWiz();
-  };
-  
-  document.getElementById('lnk-dash').onclick = function(e){
-    e.preventDefault();
-    if(sessionStorage.getItem('dash_logged')==='true'){ showView('view-dash-panel'); renderDash(); }
-    else { showView('view-dash-auth'); }
-  };
-  
-  document.getElementById('btn-dash-auth').onclick = function(){
-    var p = document.getElementById('dash-pass-input').value;
-    if(p===OWNER_PASSWORD){
-      sessionStorage.setItem('dash_logged', 'true');
-      document.getElementById('dash-pass-input').value = '';
-      showView('view-dash-panel'); renderDash();
-    } else { showToast('Invalid administrative access credential key'); }
-  };
-  
-  document.getElementById('btn-dash-logout').onclick = function(){
-    sessionStorage.removeItem('dash_logged'); showView('view-home');
-  };
-  
-  var tabs = document.querySelectorAll('.dash-tab');
-  Array.prototype.forEach.call(tabs, function(tb){
-    tb.onclick = function(){
-      tabs.forEach(function(x){x.classList.remove('active');}); tb.classList.add('active');
-      var panes = document.querySelectorAll('.dash-pane');
-      Array.prototype.forEach.call(panes, function(p){p.classList.remove('active');});
-      document.getElementById(tb.dataset.tab).classList.add('active');
-    };
-  });
-  
-  document.getElementById('btn-clear-stale').onclick = function(){
-    APPOINTMENTS = APPOINTMENTS.filter(function(a){ return a.status==='pending'||a.status==='confirmed'; });
-    save('porters_appts', APPOINTMENTS); showToast('Cleared out cancelled bookings.'); renderDash();
-  };
-};
+  render();
+  if(curLang==='es') applyLang('es');
 </script>
 </body>
 </html>
