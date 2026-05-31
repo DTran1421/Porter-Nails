@@ -392,7 +392,7 @@
     </div>
     <div class="info-stack">
       <div class="info-card"><div class="ic-ico"><i class="ti ti-map-pin"></i></div><div><strong data-i18n="about.visit">Visit us</strong><span id="aboutAddr">23830 FM1314 Suite C, Porter, TX 77365</span></div></div>
-      <div class="info-card"><div class="ic-ico"><i class="ti ti-clock"></i></div><div><strong data-i18n="about.hours">Hours</strong><span id="aboutHours">Mon&ndash;Fri 9&ndash;7 &middot; Sat 9&ndash;6 &middot; Sun 10&ndash;5</span></div></div>
+      <div class="info-card"><div class="ic-ico"><i class="ti ti-clock"></i></div><div><strong data-i18n="about.hours">Hours</strong><span id="aboutHours">Mon&ndash;Sat 9&ndash;6:30 &middot; Sun Closed</span></div></div>
       <div class="info-card"><div class="ic-ico"><i class="ti ti-credit-card"></i></div><div><strong data-i18n="about.pay">Payment</strong><span data-i18n="about.payval">Cash &amp; all major credit cards accepted</span></div></div>
     </div>
   </div>
@@ -426,7 +426,7 @@
     <div class="footer-grid">
       <div><div class="footer-logo">Porter's Nails &amp; Spa</div><p data-i18n="footer.tag">Your neighborhood nail salon in Porter, Texas. Quality care, a warm welcome, and a little luxury every visit.</p></div>
       <div class="footer-col"><h4 data-i18n="footer.visit">Visit</h4><a class="map-link" id="mapLink" href="https://www.google.com/maps/search/?api=1&amp;query=23830%20FM1314%20Suite%20C%2C%20Porter%2C%20TX%2077365" target="_blank" rel="noopener"><i class="ti ti-map-pin"></i> <span id="footAddr">23830 FM1314 Suite C, Porter, TX 77365</span></a><a href="tel:2817477421" id="footPhone">(281) 747-7421</a></div>
-      <div class="footer-col"><h4 data-i18n="footer.hours">Hours</h4><p id="footHours">Mon&ndash;Fri: 9 AM &ndash; 7 PM<br>Sat: 9 AM &ndash; 6 PM<br>Sun: 10 AM &ndash; 5 PM</p></div>
+      <div class="footer-col"><h4 data-i18n="footer.hours">Hours</h4><p id="footHours">Mon&ndash;Sat: 9 AM &ndash; 6:30 PM<br>Sun: Closed</p></div>
     </div>
     <div class="footer-bottom">&copy; 2026 Porter's Nails and Spa &middot; All rights reserved</div>
   </div>
@@ -502,8 +502,6 @@
     set: function(k,v){ try { localStorage.setItem(k,v); } catch(e){ mem[k]=v; } }
   };
   
-  // --- SELF HEALING MEMORY FUNCTION --- 
-  // Wraps JSON.parse in a try-catch so corrupted memory doesn't crash the script
   function load(k,d){ 
     var v=DB.get(k); 
     if(!v) return d;
@@ -526,7 +524,7 @@
       var key=el.getAttribute('data-i18n');
       if(lang==='en'){ if(el.getAttribute('data-en')!=null) el.innerHTML=el.getAttribute('data-en'); }
       else if(dict && dict[key]!=null){
-        if(el.getAttribute('data-en')==null) el.setAttribute('data-en', el.innerHTML); // stash original
+        if(el.getAttribute('data-en')==null) el.setAttribute('data-en', el.innerHTML); 
         el.innerHTML = dict[key];
       }
     });
@@ -604,28 +602,36 @@
     ];
     save('porters_catalog', CATALOG);
   }
-  var techs = load('porters_techs2', null);
+  
+  // Notice 'porters_techs3': By changing the key, we force the browser to accept your new staff.
+  var techs = load('porters_techs3', null);
   if(!techs){
+    var allCats = ['manicure','pedicure','enhance','addons','kids','waxing'];
+    var workDays = {1:1, 2:1, 3:1, 4:1, 5:1, 6:1}; // Mon-Sat
     techs = [
-      { id:'t1', name:'Lisa', cats:['manicure','pedicure','addons','kids','waxing'], days:{1:1,2:1,3:1,4:1,5:1,6:1}, start:9, end:18 },
-      { id:'t2', name:'Maria', cats:['enhance','manicure','pedicure','addons','waxing'], days:{2:1,3:1,4:1,5:1,6:1}, start:10, end:19 }
+      { id:'t1', name:'Rachel', cats:allCats, days:workDays, start:9, end:19 },
+      { id:'t2', name:'Ivy', cats:allCats, days:workDays, start:9, end:19 },
+      { id:'t3', name:'Mimi', cats:allCats, days:workDays, start:9, end:19 },
+      { id:'t4', name:'Amy', cats:allCats, days:workDays, start:9, end:19 }
     ];
-    save('porters_techs2', techs);
+    save('porters_techs3', techs);
   }
   var appts = load('porters_appts', []);
   var promo = load('porters_promo', { text:'', active:false });
   var gallery = load('porters_gallery', []);
-  var info = load('porters_info', {
+  
+  // Notice 'porters_info2': Bypasses the old saved schedule.
+  var info = load('porters_info2', {
     phone:'(281) 747-7421',
     address:'23830 FM1314 Suite C, Porter, TX 77365',
     hours:[
-      { closed:false, open:'10:00', close:'17:00' },
-      { closed:false, open:'09:00', close:'19:00' },
-      { closed:false, open:'09:00', close:'19:00' },
-      { closed:false, open:'09:00', close:'19:00' },
-      { closed:false, open:'09:00', close:'19:00' },
-      { closed:false, open:'09:00', close:'19:00' },
-      { closed:false, open:'09:00', close:'18:00' }
+      { closed:true,  open:'09:00', close:'18:30' }, // Sun (closed)
+      { closed:false, open:'09:00', close:'18:30' }, // Mon
+      { closed:false, open:'09:00', close:'18:30' }, // Tue
+      { closed:false, open:'09:00', close:'18:30' }, // Wed
+      { closed:false, open:'09:00', close:'18:30' }, // Thu
+      { closed:false, open:'09:00', close:'18:30' }, // Fri
+      { closed:false, open:'09:00', close:'18:30' }  // Sat
     ]
   });
 
@@ -801,7 +807,6 @@
     var tech = techs.filter(function(t){return t.id===wiz.techId;})[0];
     var y=calRef.getFullYear(), m=calRef.getMonth();
     
-    // --- UX Fix: Auto-jump to next month if current month is fully booked/passed ---
     var thisMonth = new Date(); 
     if(y === thisMonth.getFullYear() && m === thisMonth.getMonth()){
       var daysInCheck = new Date(y, m+1, 0).getDate();
@@ -814,7 +819,6 @@
         return renderDate(b);
       }
     }
-    // --- End UX Fix ---
 
     var monthName = calRef.toLocaleDateString('en-US',{month:'long',year:'numeric'});
     var firstDow = new Date(y,m,1).getDay();
@@ -958,7 +962,7 @@
       '</div>';
     tb.innerHTML=html;
     Array.prototype.forEach.call(tb.querySelectorAll('.chk input'),function(c){ c.onchange=function(){ c.closest('.chk').classList.toggle('on',c.checked); }; });
-    Array.prototype.forEach.call(tb.querySelectorAll('[data-del]'),function(el){ el.onclick=function(){ techs=techs.filter(function(t){return t.id!==el.dataset.del;}); save('porters_techs2',techs); renderDash(); }; });
+    Array.prototype.forEach.call(tb.querySelectorAll('[data-del]'),function(el){ el.onclick=function(){ techs=techs.filter(function(t){return t.id!==el.dataset.del;}); save('porters_techs3',techs); renderDash(); }; });
     tb.querySelector('#addTechBtn').onclick=function(){
       var name=tb.querySelector('#ntName').value.trim();
       var cats=Array.prototype.map.call(tb.querySelectorAll('#ntCats input:checked'),function(c){return c.value;});
@@ -968,7 +972,7 @@
       if(!dayArr.length){ showToast('Select at least one working day'); return; }
       var days={}; dayArr.forEach(function(d){ days[d]=1; });
       techs.push({ id:'t'+Date.now(), name:name, cats:cats, days:days, start:+tb.querySelector('#ntStart').value, end:+tb.querySelector('#ntEnd').value });
-      save('porters_techs2',techs); showToast(name+' added!'); renderDash();
+      save('porters_techs3',techs); showToast(name+' added!'); renderDash();
     };
   }
 
@@ -1045,7 +1049,7 @@
                         open: row.querySelector('.hd-open').value,
                         close: row.querySelector('.hd-close').value };
       });
-      save('porters_info',info); applyInfo(); renderHoursPublic(); renderOpenBadge();
+      save('porters_info2',info); applyInfo(); renderHoursPublic(); renderOpenBadge();
       showToast('Saved! Your website is updated.');
     };
   }
